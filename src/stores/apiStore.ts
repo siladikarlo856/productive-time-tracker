@@ -7,29 +7,33 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
   const axios = inject<Axios>("axios"); // inject axios
 
   function getOrganizationMemberships() {
-    return (
-      axios
-        ?.get("/organization_memberships")
-        .then((response: { data: any }) => {
-          console.log("GET /organization_memberships", response.data);
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get("/organization_memberships")
+      .then((response: { data: any }) => {
+        console.log("GET /organization_memberships", response.data);
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   function getAllTimeEntries() {
-    return (
-      axios
-        ?.get("/time_entries")
-        .then((response: { data: any }) => {
-          console.log("GET /time_entries", response.data);
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get("/time_entries")
+      .then((response: { data: any }) => {
+        console.log("GET /time_entries", response.data);
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   function getFilteredTimeEntries(
@@ -37,54 +41,54 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     before: string,
     personId: number
   ) {
-    return (
-      axios
-        ?.get("/time_entries", {
-          params: {
-            "filter[after]": after,
-            "filter[before]": before,
-            "filter[person_id]": personId,
-          },
-        })
-        .then((response: { data: any }) => {
-          console.log("GET filtered /time_entries", response.data);
-          return response;
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-          return err;
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get("/time_entries", {
+        params: {
+          "filter[after]": after,
+          "filter[before]": before,
+          "filter[person_id]": personId,
+        },
+      })
+      .then((response: { data: any }) => {
+        console.log("GET filtered /time_entries", response.data);
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   function getAllServices() {
-    return (
-      axios
-        ?.get("/services")
-        .then((response: { data: any }) => {
-          console.log("GET /services", response.data);
-          return response;
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-          return err;
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get("/services")
+      .then((response: { data: any }) => {
+        console.log("GET /services", response.data);
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   function getServiceById(id: number) {
-    return (
-      axios
-        ?.get(`/services/${id}`)
-        .then((response: { data: any }) => {
-          console.log("GET /services", response.data);
-          return response;
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-          return err;
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get(`/services/${id}`)
+      .then((response: { data: any }) => {
+        console.log("GET /services", response.data);
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   function getAvailableServicesForProject(
@@ -92,29 +96,29 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     before: string,
     personId: number
   ) {
-    return (
-      axios
-        ?.get("/services", {
-          params: {
-            "filter[after]": after,
-            "filter[before]": before,
-            "filter[person_id]": personId,
-            "filter[project_id]": 261719,
-            "filter[time_tracking_enabled]": true,
-          },
-        })
-        .then((response: { data: any }) => {
-          console.log(
-            "GET getAvailableServicesForProject /services",
-            response.data
-          );
-          return response;
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-          return err;
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get("/services", {
+        params: {
+          "filter[after]": after,
+          "filter[before]": before,
+          "filter[person_id]": personId,
+          "filter[project_id]": 261719,
+          "filter[time_tracking_enabled]": true,
+        },
+      })
+      .then((response: { data: any }) => {
+        console.log(
+          "GET getAvailableServicesForProject /services",
+          response.data
+        );
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   const postTimeEntryBody = {
@@ -145,33 +149,32 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
   };
 
   function postTimeEntry() {
-    return (
-      axios
-        ?.post("/time_entries", postTimeEntryBody)
-        .then((response: { data: any }) => {
-          console.log("POST /time_entries response:", response.data);
-          return response;
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-          return err;
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.post("/time_entries", postTimeEntryBody)
+      .then((response: { data: any }) => {
+        console.log("POST /time_entries response:", response.data);
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   function deleteTimeEntryById(id: number) {
-    return (
-      axios
-        ?.delete(`/time_entries/${id}`)
-        .then((response: any) => {
-          console.log("DELETE /time_entries", response);
-          return response;
-        })
-        .catch((err) => {
-          console.error("API call error", err);
-          return err;
-        }) || Promise.reject("Error 123") // error if axios is not provided
-    );
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+    return axios
+      ?.delete(`/time_entries/${id}`)
+      .then((response: any) => {
+        console.log("DELETE /time_entries", response);
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
   }
 
   return {

@@ -15,16 +15,17 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import notify from "devextreme/ui/notify";
 
 import TimeEntryCard from "@/views/TimeView/TimeEntryCard.vue";
 import { useProductiveApiStore } from "@/stores/apiStore";
+import { useNotifyUserStore } from "@/stores/notifiyUserStore";
 
 export default defineComponent({
   name: "TimeView",
   components: { TimeEntryCard },
   setup() {
     const apiStore = useProductiveApiStore();
+    const notifyUserStore = useNotifyUserStore();
 
     const timeEntries = ref<Array<any>>([]);
 
@@ -58,13 +59,23 @@ export default defineComponent({
 
     function onTimeEntryDelete(timeEntryId: number) {
       console.log("onTimeEntryDelete", timeEntryId);
-      apiStore.deleteTimeEntryById(timeEntryId);
+      apiStore
+        .deleteTimeEntryById(timeEntryId)
+        .then(() => {
+          notifyUserStore.notifyUserWithSuccessMessage(
+            "Time entry successfully deleted"
+          );
+        })
+        .catch(() => {
+          notifyUserStore.notifyUserWithErrorMessage(
+            "Time entry can not be deleted"
+          );
+        });
     }
 
     function onTimeEntryEdit(timeEntryId: number) {
-      notify(
-        { message: "Edit feature not implemented", type: "warning" },
-        { position: "top center" }
+      notifyUserStore.notifyUserWithWarningMessage(
+        "Edit feature is not implemented"
       );
     }
 

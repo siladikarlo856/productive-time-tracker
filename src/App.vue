@@ -38,11 +38,13 @@
 import { Axios } from "axios";
 import { defineComponent, inject } from "vue";
 import { useProductiveApiStore } from "./stores/apiStore";
+import { useNotifyUserStore } from "./stores/notifiyUserStore";
 
 export default defineComponent({
   setup() {
     // Stores
     const apiStore = useProductiveApiStore();
+    const notifyUserStore = useNotifyUserStore();
 
     console.log("Test api store");
     apiStore.getOrganizationMemberships();
@@ -53,12 +55,32 @@ export default defineComponent({
     function deleteTimeEntry() {
       console.log("Delete button handler");
       const timeEntryId = window.prompt();
-      apiStore.deleteTimeEntryById(Number.parseInt(timeEntryId || ""));
+      apiStore
+        .deleteTimeEntryById(Number.parseInt(timeEntryId || ""))
+        .then(() => {
+          notifyUserStore.notifyUserWithSuccessMessage(
+            "Time entry successfully deleted"
+          );
+        })
+        .catch(() => {
+          notifyUserStore.notifyUserWithErrorMessage(
+            "Time entry can not be deleted"
+          );
+        });
     }
 
     function createTimeEntry() {
       console.log("Create button handler");
-      apiStore.postTimeEntry();
+      apiStore
+        .postTimeEntry()
+        .then(() => {
+          notifyUserStore.notifyUserWithSuccessMessage("Time entry created");
+        })
+        .catch(() => {
+          notifyUserStore.notifyUserWithErrorMessage(
+            "Time entry creation failed"
+          );
+        });
     }
 
     return { deleteTimeEntry, createTimeEntry };
