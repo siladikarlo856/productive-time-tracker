@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10 text-3xl mx-auto max-w-6xl">
+  <div class="flex flex-col mt-10 text-3xl mx-auto items-center">
     <div>Name: vue3-ts-template</div>
     <div>Framework: vue3</div>
     <div>Language: TypeScript</div>
