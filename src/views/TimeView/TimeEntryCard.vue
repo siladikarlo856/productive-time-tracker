@@ -4,17 +4,19 @@
   >
     <div class="text-center space-y-2 sm:text-left">
       <div class="space-y-0.5">
-        <p class="text-lg text-black font-semibold">Productive time tracker</p>
-        <p class="text-slate-500 font-medium">My servcie for development</p>
+        <p class="text-lg text-black font-semibold">{{ projectTitle }}</p>
+        <p class="text-slate-500 font-medium">{{ serviceTitle }}</p>
       </div>
     </div>
-    <div class="flex items-center">
-      <div class="text-sm">
-        <p class="text-gray-900 leading-none">Here goes note</p>
+    <div class="flex flex-grow">
+      <div class="text-sm ml-6">
+        <p class="text-gray-900 leading-none">{{ noteText }}</p>
       </div>
     </div>
-    <div class="flex items-center">
-      <div class="text-gray-900 font-bold text-xl">120 min</div>
+    <div class="flex">
+      <div class="text-gray-900 font-bold text-xl">
+        {{ durationInMinutes }} minutes
+      </div>
     </div>
     <div>
       <button
@@ -36,6 +38,12 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "TimeEntryCard",
+  props: {
+    projectTitle: { type: String },
+    serviceTitle: { type: String },
+    noteText: { type: String },
+    durationInMinutes: { type: Number },
+  },
   setup() {
     return {};
   },
