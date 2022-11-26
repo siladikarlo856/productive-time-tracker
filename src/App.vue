@@ -18,6 +18,11 @@
           class="text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded"
           >Go to About</router-link
         >
+        <router-link
+          to="/time"
+          class="text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded"
+          >Time</router-link
+        >
       </nav>
     </div>
     <!-- end main container -->
@@ -51,7 +56,7 @@ export default defineComponent({
     function deleteTimeEntry() {
       console.log("Delete button handler");
       const timeEntryId = window.prompt();
-      apiStore.deleteTimeEntryById(Number.parseInt(timeEntryId));
+      apiStore.deleteTimeEntryById(Number.parseInt(timeEntryId || ""));
     }
 
     function createTimeEntry() {
