@@ -48,9 +48,11 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
         })
         .then((response: { data: any }) => {
           console.log("GET filtered /time_entries", response.data);
+          return response;
         })
         .catch((err) => {
           console.error("API call error", err);
+          return err;
         }) || Promise.reject("Error 123") // error if axios is not provided
     );
   }
@@ -61,9 +63,26 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
         ?.get("/services")
         .then((response: { data: any }) => {
           console.log("GET /services", response.data);
+          return response;
         })
         .catch((err) => {
           console.error("API call error", err);
+          return err;
+        }) || Promise.reject("Error 123") // error if axios is not provided
+    );
+  }
+
+  function getServiceById(id: number) {
+    return (
+      axios
+        ?.get(`/services/${id}`)
+        .then((response: { data: any }) => {
+          console.log("GET /services", response.data);
+          return response;
+        })
+        .catch((err) => {
+          console.error("API call error", err);
+          return err;
         }) || Promise.reject("Error 123") // error if axios is not provided
     );
   }
@@ -89,9 +108,11 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
             "GET getAvailableServicesForProject /services",
             response.data
           );
+          return response;
         })
         .catch((err) => {
           console.error("API call error", err);
+          return err;
         }) || Promise.reject("Error 123") // error if axios is not provided
     );
   }
@@ -129,9 +150,11 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
         ?.post("/time_entries", postTimeEntryBody)
         .then((response: { data: any }) => {
           console.log("POST /time_entries response:", response.data);
+          return response;
         })
         .catch((err) => {
           console.error("API call error", err);
+          return err;
         }) || Promise.reject("Error 123") // error if axios is not provided
     );
   }
@@ -142,9 +165,11 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
         ?.delete(`/time_entries/${id}`)
         .then((response: any) => {
           console.log("DELETE /time_entries", response);
+          return response;
         })
         .catch((err) => {
           console.error("API call error", err);
+          return err;
         }) || Promise.reject("Error 123") // error if axios is not provided
     );
   }
@@ -154,6 +179,7 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     getAllTimeEntries,
     getFilteredTimeEntries,
     getAllServices,
+    getServiceById,
     getAvailableServicesForProject,
     postTimeEntry,
     deleteTimeEntryById,
