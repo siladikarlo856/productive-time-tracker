@@ -41,9 +41,6 @@ import { useProductiveApiStore } from "./stores/apiStore";
 
 export default defineComponent({
   setup() {
-    // Dependency injection
-    const axios = inject<Axios>("axios"); // inject axios
-
     // Stores
     const apiStore = useProductiveApiStore();
 

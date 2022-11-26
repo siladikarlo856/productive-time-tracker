@@ -10,7 +10,7 @@
     </div>
     <div class="flex flex-grow">
       <div class="text-sm ml-6">
-        <p class="text-gray-900 leading-none">{{ noteText }}</p>
+        <div class="text-gray-900" v-html="noteText"></div>
       </div>
     </div>
     <div class="flex">
@@ -21,11 +21,13 @@
     <div>
       <button
         class="mr-4 px-4 py-1 w-20 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none"
+        @click="$emit('edit')"
       >
         Edit
       </button>
       <button
         class="px-4 py-1 text-sm w-20 text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none"
+        @click="$emit('delete')"
       >
         Delete
       </button>
@@ -44,6 +46,7 @@ export default defineComponent({
     noteText: { type: String },
     durationInMinutes: { type: Number },
   },
+  emits: ["edit", "delete"],
   setup() {
     return {};
   },
