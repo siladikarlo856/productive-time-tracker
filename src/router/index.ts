@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory("ethical-legal-store"),
+  history: createWebHistory(),
   routes,
 });
 
