@@ -21,29 +21,45 @@
       </nav>
     </div>
     <!-- end main container -->
-    <footer class="bg-gray-100">Footer</footer>
+    <footer class="bg-gray-100">
+      Footer
+      <button @click="createTimeEntry">Create</button>
+      <button @click="deleteTimeEntry">DELETE</button>
+    </footer>
   </div>
 </template>
 
 <script lang="ts">
 import { Axios } from "axios";
 import { defineComponent, inject } from "vue";
+import { useProductiveApiStore } from "./stores/apiStore";
 
 export default defineComponent({
   setup() {
+    // Dependency injection
     const axios = inject<Axios>("axios"); // inject axios
 
-    axios
-      ?.get("https://dummyjson.com/products/1")
-      .then((response: { data: any }) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.error("API call error", err);
-      });
+    // Stores
+    const apiStore = useProductiveApiStore();
 
-    console.log("Test lint warning");
-    return {};
+    console.log("Test api store");
+    apiStore.getOrganizationMemberships();
+
+    apiStore.getFilteredTimeEntries("2022-11-25", "2022-11-25", 352657);
+    apiStore.getAvailableServicesForProject("2022-11-25", "2022-11-25", 352657);
+
+    function deleteTimeEntry() {
+      console.log("Delete button handler");
+      const timeEntryId = window.prompt();
+      apiStore.deleteTimeEntryById(Number.parseInt(timeEntryId));
+    }
+
+    function createTimeEntry() {
+      console.log("Create button handler");
+      apiStore.postTimeEntry();
+    }
+
+    return { deleteTimeEntry, createTimeEntry };
   },
 });
 </script>

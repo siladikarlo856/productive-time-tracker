@@ -15,6 +15,13 @@ app.use(VueAxios, axios);
 app.use(router);
 app.use(pinia);
 
+// ATTENTION: Axios global config HARDCODED!!!
+axios.defaults.baseURL = "https://api.productive.io/api/v2";
+axios.defaults.headers.common["X-Auth-Token"] =
+  "3fcefcff-3384-44f4-b520-08507ea4b163";
+axios.defaults.headers.common["X-Organization-Id"] = "23881";
+axios.defaults.headers.post["Content-Type"] = "application/vnd.api+json";
+
 app.provide("axios", app.config.globalProperties.axios); // provide 'axios'
 
 app.mount("#app");
