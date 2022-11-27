@@ -6,7 +6,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: "auto",
   },
 
   resolve: {

@@ -72,7 +72,7 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
         PROJECT_ID
       )
       .then((response) => {
-        availableServicesForProject.value = response.data;
+        availableServicesForProject.value = response.data.data;
         console.log(
           "fetchAvailableServicesForProject then in store",
           availableServicesForProject.value
