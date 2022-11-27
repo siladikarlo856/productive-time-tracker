@@ -21,6 +21,31 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
       });
   }
 
+  function getOrganizationMembershipsForSpecificOrganization(
+    organizationId: number
+  ) {
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get("/organization_memberships", {
+        params: {
+          "filter[organization_id]": organizationId,
+        },
+      })
+      .then((response: { data: any }) => {
+        console.log(
+          "GET /organization_memberships for org",
+          organizationId,
+          response.data
+        );
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
+  }
+
   function getAllTimeEntries() {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
 
@@ -179,6 +204,7 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
 
   return {
     getOrganizationMemberships,
+    getOrganizationMembershipsForSpecificOrganization,
     getAllTimeEntries,
     getFilteredTimeEntries,
     getAllServices,

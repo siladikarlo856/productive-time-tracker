@@ -10,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["mocha"],
+    "types": ["node", "mocha", "chai"],
     "resolveJsonModule": true,
     "paths": {
       "@/*": ["src/*"]
