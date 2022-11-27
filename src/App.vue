@@ -1,37 +1,11 @@
 <template>
-  <div class="min-h-screen flex flex-col h-screen">
-    <!-- main container -->
-
-    <div class="flex-1 flex flex-row overflow-y-hidden">
-      <main class="flex-1 bg-indigo-100 overflow-y-auto">
-        <div class="flex bg-red-50 p-5 border">
-          Hello {{ timeTrackerStore.currentUser.attributes?.first_name }}
-          {{ timeTrackerStore.currentUser.attributes?.last_name }}!
-        </div>
-        <router-view></router-view>
-      </main>
-
-      <nav class="order-first sm:w-32 overflow-y-auto">
-        <div class="p-5 border">Productive</div>
-        <router-link
-          to="/"
-          class="border text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded text-center"
-          >Home</router-link
-        >
-        <router-link
-          to="/time"
-          class="border text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded text-center"
-          >Time</router-link
-        >
-        <router-link
-          to="/about"
-          class="border text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded text-center"
-          >About</router-link
-        >
-      </nav>
-    </div>
-    <!-- end main container -->
-    <footer class="bg-gray-100">Footer</footer>
+  <div class="min-h-screen flex flex-row h-screen overflow-y-hidden">
+    <nav>
+      <MainNavigation />
+    </nav>
+    <main class="flex-1 bg-gray-100 overflow-y-auto">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
@@ -42,8 +16,11 @@ import { OrganizationMembershipsModel } from "./models/OrganizationMembershipsMo
 import { useProductiveApiStore } from "./stores/apiStore";
 import { useNotifyUserStore } from "./stores/notifiyUserStore";
 import { useTimeTrackerStore } from "./stores/timeTrackerStore";
+import MainNavigation from "./components/MainNavigation/MainNavigation.vue";
 
 export default defineComponent({
+  name: "AppVue",
+  components: { MainNavigation },
   setup() {
     // Stores
     const apiStore = useProductiveApiStore();
@@ -71,21 +48,11 @@ export default defineComponent({
         }
         console.log("Current user: ", personObject);
       })
-      .then(() => {
-        apiStore.getFilteredTimeEntries(
-          "2022-11-25",
-          "2022-11-25",
-          timeTrackerStore.orgMembershipForCurrentOrganization.id
+      .catch((err) => {
+        console.error(err);
+        notifyUserStore.notifyUserWithErrorMessage(
+          "Something went wrong. Please refresh page and try again."
         );
-        apiStore.getAvailableServicesForProject(
-          "2022-11-25",
-          "2022-11-25",
-          timeTrackerStore.orgMembershipForCurrentOrganization.id,
-          timeTrackerStore.PROJECT_ID
-        );
-      })
-      .catch((res) => {
-        console.log("getOrganizationMemberships catch", res);
       });
 
     return { timeTrackerStore };

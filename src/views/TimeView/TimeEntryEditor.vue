@@ -1,73 +1,130 @@
 <template>
   <div
-    class="mb-1 ml-20 mr-20 flex flex-col md:flex-row justify-between py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"
+    class="mb-1 ml-20 mr-20 flex flex-col justify-between py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0"
   >
-    <div class="flex flex-wrap -mx-3 w-1/4">
-      <div class="px-3 mb-6 md:mb-0 w-full">
-        <label
-          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          for="service"
-        >
-          Service
-        </label>
-        <div class="relative">
-          <select
-            class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="service"
-            v-model="selectedService"
+    <div class="flex flex-grow w-full pb-4">
+      <div class="flex flex-grow">
+        <div class="mb-6 md:mb-0 w-full">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-last-name"
           >
-            <option value="" disabled selected>Select service</option>
-            <option
-              v-for="service in availableServices"
-              :key="service.id"
-              :value="service.id"
+            Project
+          </label>
+          <div class="relative">
+            <select
+              class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="service"
+              v-model="selectedService"
             >
-              {{ service.name }}
-            </option>
-          </select>
-          <div
-            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-          >
-            <svg
-              class="fill-current h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
+              <option value="" disabled selected>
+                {{ timeTrackerStore.PROJECT_NAME }}
+              </option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
             >
-              <path
-                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              />
-            </svg>
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="flex flex-grow -mx-3">
-      <div class="px-3 mb-6 md:mb-0 w-full">
-        <label
-          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          for="grid-last-name"
-        >
-          Description
-        </label>
-        <input
-          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-          id="grid-last-name"
-          type="text"
-          v-model="description"
-        />
+    <div class="flex flex-row flex-grow justify-between w-full">
+      <div class="flex flex-wrap flex-grow w-1/2">
+        <div class="pr-1 mb-6 md:mb-0 w-full">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="service"
+          >
+            Service
+          </label>
+          <div class="relative">
+            <select
+              class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="service"
+              v-model="selectedService"
+            >
+              <option value="" disabled selected>Select service</option>
+              <option
+                v-for="service in availableServices"
+                :key="service.id"
+                :value="service.id"
+              >
+                {{ service.name }}
+              </option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+            >
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-2/4 flex-grow">
+        <div class="px-2 mb-6 md:mb-0 w-full">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-last-name"
+          >
+            Time [min]
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-last-name"
+            type="number"
+            v-model="timeInMinutes"
+          />
+        </div>
+      </div>
+      <div class="flex flex-wrap flex-grow justify-end w-1/6">
+        <div class="mb-6 md:mb-0 w-full">
+          <div class="block">
+            <br />
+          </div>
+          <LoadingButton
+            class="px-4 py-2 w-20 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none justify-center w-full flex-grow"
+            @click="onAddNewClick"
+            :isLoading="isLoading"
+          >
+            Add new
+          </LoadingButton>
+        </div>
       </div>
     </div>
-    <div class="flex flex-wrap justify-end -mx-3 w-1/7">
-      <div class="mb-6 md:mb-0">
-        <div class="block">
-          <br />
+    <div class="flex flex-grow w-full pt-4">
+      <div class="flex flex-grow">
+        <div class="mb-6 md:mb-0 w-full">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-last-name"
+          >
+            Note
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="grid-last-name"
+            type="text"
+            v-model="note"
+          />
         </div>
-        <button
-          class="mr-0 px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none"
-          @click="onAddNewClick"
-        >
-          Add new
-        </button>
       </div>
     </div>
   </div>
@@ -78,21 +135,25 @@ import { useProductiveApiStore } from "@/stores/apiStore";
 import { useNotifyUserStore } from "@/stores/notifiyUserStore";
 import { useTimeTrackerStore } from "@/stores/timeTrackerStore";
 import { defineComponent, ref, watchEffect } from "vue";
+import LoadingButton from "@/components/LoadingButton/LoadingButton.vue";
 
 export default defineComponent({
   name: "TimeEntryEditor",
-  components: {},
+  components: { LoadingButton },
   setup() {
     const apiStore = useProductiveApiStore();
     const notifyUserStore = useNotifyUserStore();
     const timeTrackerStore = useTimeTrackerStore();
 
     const selectedService = ref("");
-    const description = ref("");
+    const note = ref("");
+    const timeInMinutes = ref();
+
+    const isLoading = ref(false);
 
     const availableServices = [
       {
-        id: "2342970",
+        id: "2343343",
         name: "My service for development",
       },
       {
@@ -102,8 +163,16 @@ export default defineComponent({
     ];
 
     function onAddNewClick() {
-      console.log("Add new: ", selectedService.value, description.value);
-      createTimeEntry();
+      console.log("Add new: ", selectedService.value, note.value);
+      isLoading.value = true;
+      createTimeEntry()
+        .then(() => {
+          timeTrackerStore.fetchTimeEntryPresentables();
+        })
+        .finally(() => {
+          clearForm();
+          isLoading.value = false;
+        });
     }
 
     function createTimeEntry() {
@@ -112,8 +181,9 @@ export default defineComponent({
         data: {
           type: "time_entries",
           attributes: {
-            note: description.value,
-            date: "2022-11-25",
+            note: note.value,
+            date: timeTrackerStore.getTodaysDateFormatted(),
+            time: timeInMinutes.value,
           },
           relationships: {
             person: {
@@ -134,7 +204,7 @@ export default defineComponent({
           },
         },
       };
-      apiStore
+      return apiStore
         .postTimeEntry(postTimeEntryBody)
         .then(() => {
           notifyUserStore.notifyUserWithSuccessMessage("Time entry created");
@@ -146,11 +216,25 @@ export default defineComponent({
         });
     }
 
+    function clearForm() {
+      selectedService.value = "";
+      note.value = "";
+      timeInMinutes.value = undefined;
+    }
+
     watchEffect(() => {
       // TODO: reactive validation
     });
 
-    return { selectedService, description, availableServices, onAddNewClick };
+    return {
+      timeTrackerStore,
+      selectedService,
+      note,
+      timeInMinutes,
+      availableServices,
+      isLoading,
+      onAddNewClick,
+    };
   },
 });
 </script>

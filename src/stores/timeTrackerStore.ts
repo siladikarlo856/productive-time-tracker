@@ -3,12 +3,16 @@ import { OrganizationMembershipsModel } from "@/models/OrganizationMembershipsMo
 import { PersonModel } from "@/models/PersonModel";
 import { defineStore } from "pinia";
 import { ref, computed, reactive } from "vue";
+import { useProductiveApiStore } from "./apiStore";
 
 export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   // CONSTANTS
   const ORGANIZATION_ID = "23881";
   const PROJECT_ID = "261719";
   const PROJECT_NAME = "Productive time tracker";
+
+  // STORES and COMPOSABLES
+  const apiStore = useProductiveApiStore();
 
   // REACTIVE
   const organizationMemberships = ref<OrganizationMembershipsModel>(
@@ -18,6 +22,45 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
     new OrganizationMembershipModel()
   );
   const currentUser = ref<PersonModel>(new PersonModel());
+
+  const timeEntries = ref<Array<any>>([]);
+
+  function fetchTimeEntryPresentables() {
+    apiStore
+      .getFilteredTimeEntries(
+        getTodaysDateFormatted(),
+        getTodaysDateFormatted(),
+        currentUser.value.id
+      )
+      .then((filteredTimeEntriesResponse) => {
+        console.log("Time view getFilteredTimeEntries");
+        apiStore.getAllServices().then((allServicesResponse) => {
+          console.log("get all services", allServicesResponse);
+
+          timeEntries.value = [];
+          filteredTimeEntriesResponse.data.data.forEach((timeEntryDTO: any) => {
+            console.log("timeEntryDTO object", timeEntryDTO);
+
+            const serviceName = allServicesResponse.data.data.find(
+              (serviceObject: any) =>
+                serviceObject.id === timeEntryDTO.relationships.service.data.id
+            )?.attributes?.name;
+
+            const timeEntryPresentableObj = {
+              id: timeEntryDTO.id,
+              noteText: timeEntryDTO.attributes.note,
+              timeInMinutes: timeEntryDTO.attributes.time,
+              serviceName: serviceName,
+            };
+            console.log("timeEntryPresentableObj", timeEntryPresentableObj);
+
+            timeEntries.value.push(timeEntryPresentableObj);
+          });
+          return allServicesResponse;
+        });
+        return filteredTimeEntriesResponse;
+      });
+  }
 
   /**
    * Get today's in 'YYYY-MM-DD' format
@@ -56,8 +99,10 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
     organizationMemberships,
     orgMembershipForCurrentOrganization,
     currentUser,
+    timeEntries,
     findOrgMembershipForOrganization,
     getPersonFromOrganizationMemberships,
     getTodaysDateFormatted,
+    fetchTimeEntryPresentables,
   };
 });

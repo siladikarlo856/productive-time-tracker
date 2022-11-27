@@ -1,19 +1,26 @@
 <template>
   <div>
-    <div class="m-4">
-      Here are yours time entries for today ({{ new Date().toDateString() }}) on
-      project "{{ timeTrackerStore.PROJECT_NAME }}"
+    <div
+      class="mt-3 mb-6 ml-20 mr-20 flex py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:space-y-0 items-center"
+    >
+      <i
+        class="fa-sharp fa-solid fa-circle-info my-auto mr-4 text-xl text-blue-800"
+      ></i>
+      <span class="my-auto">
+        Here are yours time entries for today, {{ new Date().toDateString() }}
+      </span>
     </div>
   </div>
-  <TimeEntryEditor />
+  <TimeEntryEditor class="mb-6" />
   <div class="cards-container flex flex-col justify-items-center">
     <TimeEntryCard
-      v-for="timeEntry in timeEntries"
+      v-for="timeEntry in timeTrackerStore.timeEntries"
       :key="timeEntry.id"
       :project-title="timeTrackerStore.PROJECT_NAME"
       :service-title="timeEntry.serviceName"
       :note-text="timeEntry.noteText"
       :duration-in-minutes="timeEntry.timeInMinutes"
+      :is-delete-in-progress="isDeleteInProgress"
       @delete="onTimeEntryDelete(timeEntry.id)"
       @edit="onTimeEntryEdit(timeEntry.id)"
     />
@@ -38,64 +45,25 @@ export default defineComponent({
     const notifyUserStore = useNotifyUserStore();
     const timeTrackerStore = useTimeTrackerStore();
 
-    const timeEntries = ref<Array<any>>([]);
+    const isDeleteInProgress = ref(false);
 
     // Lifecycle hooks
     onMounted(() => {
-      console.log("TimeView: get time entries");
-      fetchTimeEntries();
-
+      timeTrackerStore.fetchTimeEntryPresentables();
+      // subscribe on timeTracker store changes
       timeTrackerStore.$subscribe(storeSubscriptionHandler);
     });
 
-    function fetchTimeEntries() {
-      apiStore
-        .getFilteredTimeEntries(
-          timeTrackerStore.getTodaysDateFormatted(),
-          timeTrackerStore.getTodaysDateFormatted(),
-          timeTrackerStore.currentUser.id
-        )
-        .then((filteredTimeEntriesResponse) => {
-          console.log("Time view getFilteredTimeEntries");
-          apiStore.getAllServices().then((allServicesResponse) => {
-            console.log("get all services", allServicesResponse);
-
-            filteredTimeEntriesResponse.data.data.forEach(
-              (timeEntryDTO: any) => {
-                console.log("timeEntryDTO object", timeEntryDTO);
-
-                const serviceName = allServicesResponse.data.data.find(
-                  (serviceObject: any) =>
-                    serviceObject.id ===
-                    timeEntryDTO.relationships.service.data.id
-                )?.attributes?.name;
-
-                const timeEntryPresentableObj = {
-                  id: timeEntryDTO.id,
-                  noteText: timeEntryDTO.attributes.note,
-                  timeInMinutes: timeEntryDTO.attributes.time,
-                  serviceName: serviceName,
-                };
-                console.log("timeEntryPresentableObj", timeEntryPresentableObj);
-
-                timeEntries.value.push(timeEntryPresentableObj);
-              }
-            );
-            return allServicesResponse;
-          });
-          return filteredTimeEntriesResponse;
-        });
-    }
-
+    // Fetch time entries if the currentUser object is mutated
     function storeSubscriptionHandler(mutation: any, state: any) {
       if (mutation?.events?.newValue instanceof PersonModel) {
-        console.log("Person mutated", mutation, state);
-        fetchTimeEntries();
+        timeTrackerStore.fetchTimeEntryPresentables();
       }
     }
 
     function onTimeEntryDelete(timeEntryId: string) {
       console.log("onTimeEntryDelete", timeEntryId);
+      isDeleteInProgress.value = true;
       apiStore
         .deleteTimeEntryById(timeEntryId)
         .then(() => {
@@ -107,6 +75,10 @@ export default defineComponent({
           notifyUserStore.notifyUserWithErrorMessage(
             "Time entry can not be deleted"
           );
+        })
+        .finally(() => {
+          isDeleteInProgress.value = false;
+          timeTrackerStore.fetchTimeEntryPresentables();
         });
     }
 
@@ -118,7 +90,7 @@ export default defineComponent({
 
     return {
       timeTrackerStore,
-      timeEntries,
+      isDeleteInProgress,
       onTimeEntryDelete,
       onTimeEntryEdit,
     };
