@@ -1,39 +1,11 @@
 <template>
-  <div class="min-h-screen flex flex-col h-screen">
-    <header class="bg-red-50">
-      Hello {{ timeTrackerStore.currentUser.attributes?.first_name }}
-      {{ timeTrackerStore.currentUser.attributes?.last_name }}
-    </header>
-    <!-- main container -->
-    <div class="flex-1 flex flex-row overflow-y-hidden">
-      <main class="flex-1 bg-indigo-100 overflow-y-auto">
-        <router-view></router-view>
-      </main>
-
-      <nav class="order-first sm:w-32 overflow-y-auto">
-        <router-link
-          to="/"
-          class="text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded"
-          >Go to Home</router-link
-        >
-        <router-link
-          to="/about"
-          class="text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded"
-          >Go to About</router-link
-        >
-        <router-link
-          to="/time"
-          class="text-blue-500 hover:text-blue-800 block hover:bg-indigo-50 py-2 px-2 rounded"
-          >Time</router-link
-        >
-      </nav>
-    </div>
-    <!-- end main container -->
-    <footer class="bg-gray-100">
-      Footer
-      <button @click="createTimeEntry">Create</button>
-      <button @click="deleteTimeEntry">DELETE</button>
-    </footer>
+  <div class="min-h-screen flex flex-row h-screen overflow-y-hidden">
+    <nav>
+      <MainNavigation />
+    </nav>
+    <main class="flex-1 bg-gray-100 overflow-y-auto">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
@@ -44,8 +16,11 @@ import { OrganizationMembershipsModel } from "./models/OrganizationMembershipsMo
 import { useProductiveApiStore } from "./stores/apiStore";
 import { useNotifyUserStore } from "./stores/notifiyUserStore";
 import { useTimeTrackerStore } from "./stores/timeTrackerStore";
+import MainNavigation from "./components/MainNavigation/MainNavigation.vue";
 
 export default defineComponent({
+  name: "AppVue",
+  components: { MainNavigation },
   setup() {
     // Stores
     const apiStore = useProductiveApiStore();
@@ -71,82 +46,16 @@ export default defineComponent({
         if (personObject) {
           timeTrackerStore.currentUser = personObject;
         }
+        console.log("Current user: ", personObject);
       })
-      .then(() => {
-        apiStore.getFilteredTimeEntries(
-          "2022-11-25",
-          "2022-11-25",
-          timeTrackerStore.orgMembershipForCurrentOrganization.id
+      .catch((err) => {
+        console.error(err);
+        notifyUserStore.notifyUserWithErrorMessage(
+          "Something went wrong. Please refresh page and try again."
         );
-        apiStore.getAvailableServicesForProject(
-          "2022-11-25",
-          "2022-11-25",
-          timeTrackerStore.orgMembershipForCurrentOrganization.id,
-          timeTrackerStore.PROJECT_ID
-        );
-      })
-      .catch((res) => {
-        console.log("getOrganizationMemberships catch", res);
       });
 
-    function deleteTimeEntry() {
-      console.log("Delete button handler");
-      const timeEntryId = window.prompt();
-      apiStore
-        .deleteTimeEntryById(timeEntryId || "")
-        .then(() => {
-          notifyUserStore.notifyUserWithSuccessMessage(
-            "Time entry successfully deleted"
-          );
-        })
-        .catch(() => {
-          notifyUserStore.notifyUserWithErrorMessage(
-            "Time entry can not be deleted"
-          );
-        });
-    }
-
-    function createTimeEntry() {
-      console.log("Create button handler");
-      const postTimeEntryBody = {
-        data: {
-          type: "time_entries",
-          attributes: {
-            note: "test note vue",
-            date: "2022-11-25",
-          },
-          relationships: {
-            person: {
-              data: {
-                type: "people",
-                id: "352657",
-              },
-            },
-            service: {
-              data: {
-                type: "services",
-                id: "2343326",
-              },
-            },
-            task: {
-              data: null,
-            },
-          },
-        },
-      };
-      apiStore
-        .postTimeEntry(postTimeEntryBody)
-        .then(() => {
-          notifyUserStore.notifyUserWithSuccessMessage("Time entry created");
-        })
-        .catch(() => {
-          notifyUserStore.notifyUserWithErrorMessage(
-            "Time entry creation failed"
-          );
-        });
-    }
-
-    return { timeTrackerStore, deleteTimeEntry, createTimeEntry };
+    return { timeTrackerStore };
   },
 });
 </script>

@@ -1,13 +1,24 @@
 <template>
-  <TimeEntryEditor />
+  <div
+    class="mt-3 mb-6 ml-20 mr-20 flex py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:space-y-0 items-center"
+  >
+    <i
+      class="fa-sharp fa-solid fa-circle-info my-auto mr-4 text-xl text-blue-800"
+    ></i>
+    <span class="my-auto">
+      Here are yours time entries for today, {{ new Date().toDateString() }}
+    </span>
+  </div>
+  <TimeEntryEditor class="mb-6" />
   <div class="cards-container flex flex-col justify-items-center">
     <TimeEntryCard
-      v-for="timeEntry in timeEntries"
+      v-for="timeEntry in timeTrackerStore.timeEntries"
       :key="timeEntry.id"
-      project-title="Productive time tracker"
+      :project-title="timeTrackerStore.PROJECT_NAME"
       :service-title="timeEntry.serviceName"
       :note-text="timeEntry.noteText"
       :duration-in-minutes="timeEntry.timeInMinutes"
+      :is-delete-in-progress="isDeleteInProgress"
       @delete="onTimeEntryDelete(timeEntry.id)"
       @edit="onTimeEntryEdit(timeEntry.id)"
     />
@@ -15,12 +26,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 
 import TimeEntryCard from "@/views/TimeView/TimeEntryCard.vue";
 import TimeEntryEditor from "./TimeEntryEditor.vue";
 import { useProductiveApiStore } from "@/stores/apiStore";
 import { useNotifyUserStore } from "@/stores/notifiyUserStore";
+import { useTimeTrackerStore } from "@/stores/timeTrackerStore";
+import { PersonModel } from "@/models/PersonModel";
 
 export default defineComponent({
   name: "TimeView",
@@ -28,39 +41,27 @@ export default defineComponent({
   setup() {
     const apiStore = useProductiveApiStore();
     const notifyUserStore = useNotifyUserStore();
+    const timeTrackerStore = useTimeTrackerStore();
 
-    const timeEntries = ref<Array<any>>([]);
+    const isDeleteInProgress = ref(false);
 
     // Lifecycle hooks
-    // On create
-    apiStore
-      .getFilteredTimeEntries("2022-11-25", "2022-11-25", 352657)
-      .then((response) => {
-        console.log("TimeView getFilteredTimeEntries", response);
+    onMounted(() => {
+      timeTrackerStore.fetchTimeEntryPresentables();
+      // subscribe on timeTracker store changes
+      timeTrackerStore.$subscribe(storeSubscriptionHandler);
+    });
 
-        response.data.data.forEach(async (timeEntryDTO: any) => {
-          await apiStore
-            .getServiceById(timeEntryDTO.relationships.service.data.id)
-            .then((res) => {
-              const timeEntryPresentableObj = {
-                id: timeEntryDTO.id,
-                noteText: timeEntryDTO.attributes.note,
-                timeInMinutes: timeEntryDTO.attributes.time,
-                serviceName: res.data.data.attributes.name,
-              };
-              console.log("timeEntryPresentableObj", timeEntryPresentableObj);
+    // Fetch time entries if the currentUser object is mutated
+    function storeSubscriptionHandler(mutation: any, state: any) {
+      if (mutation?.events?.newValue instanceof PersonModel) {
+        timeTrackerStore.fetchTimeEntryPresentables();
+      }
+    }
 
-              timeEntries.value.push(timeEntryPresentableObj);
-            });
-        });
-        return response;
-      })
-      .then((response) => {
-        console.log("timeEntries created", response.data.data);
-      });
-
-    function onTimeEntryDelete(timeEntryId: number) {
+    function onTimeEntryDelete(timeEntryId: string) {
       console.log("onTimeEntryDelete", timeEntryId);
+      isDeleteInProgress.value = true;
       apiStore
         .deleteTimeEntryById(timeEntryId)
         .then(() => {
@@ -72,16 +73,25 @@ export default defineComponent({
           notifyUserStore.notifyUserWithErrorMessage(
             "Time entry can not be deleted"
           );
+        })
+        .finally(() => {
+          isDeleteInProgress.value = false;
+          timeTrackerStore.fetchTimeEntryPresentables();
         });
     }
 
-    function onTimeEntryEdit(timeEntryId: number) {
+    function onTimeEntryEdit(timeEntryId: string) {
       notifyUserStore.notifyUserWithWarningMessage(
         "Edit feature is not implemented"
       );
     }
 
-    return { timeEntries, onTimeEntryDelete, onTimeEntryEdit };
+    return {
+      timeTrackerStore,
+      isDeleteInProgress,
+      onTimeEntryDelete,
+      onTimeEntryEdit,
+    };
   },
 });
 </script>

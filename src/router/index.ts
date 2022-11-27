@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView/HomeView.vue";
-import AboutView from "@/views/AboutView/AboutView.vue";
 import TimeView from "@/views/TimeView/TimeView.vue";
+import NotFound from "@/views/NotFound/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,14 +10,13 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
-    component: AboutView,
-  },
-  {
     path: "/time",
     name: "time",
     component: TimeView,
+  },
+  {
+    path: `/:pathMatch(.*)*`,
+    component: NotFound,
   },
 ];
 

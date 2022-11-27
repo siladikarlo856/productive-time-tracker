@@ -18,33 +18,40 @@
         {{ durationInMinutes }} minutes
       </div>
     </div>
-    <div class="flex justify-end w-1/4">
-      <button
-        class="mr-4 px-4 py-1 w-20 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none"
-        @click="$emit('edit')"
-      >
-        Edit
-      </button>
-      <button
-        class="px-4 py-1 text-sm w-20 text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none"
-        @click="$emit('delete')"
-      >
-        Delete
-      </button>
+    <div class="flex justify-end w-1/7">
+      <div class="w-1/2 mr-2">
+        <LoadingButton
+          class="px-4 py-2 w-20 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none justify-center w-full"
+          @click="$emit('edit')"
+        >
+          Edit
+        </LoadingButton>
+      </div>
+      <div class="w-1/2 ml-2">
+        <LoadingButton
+          @click="$emit('delete')"
+          :is-loading="isDeleteInProgress"
+          class="px-4 py-2 w-20 text-sm text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none justify-center w-full flex-grow"
+          >Delete</LoadingButton
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import LoadingButton from "@/components/LoadingButton/LoadingButton.vue";
 
 export default defineComponent({
   name: "TimeEntryCard",
+  components: { LoadingButton },
   props: {
     projectTitle: { type: String },
     serviceTitle: { type: String },
     noteText: { type: String },
     durationInMinutes: { type: Number },
+    isDeleteInProgress: { type: Boolean },
   },
   emits: ["edit", "delete"],
   setup() {
