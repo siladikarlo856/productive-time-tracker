@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   output: {
@@ -58,6 +59,11 @@ module.exports = {
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/public", to: "" }, //to the dist root directory
+      ],
     }),
   ],
 };
