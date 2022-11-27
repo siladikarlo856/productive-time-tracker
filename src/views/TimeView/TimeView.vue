@@ -1,4 +1,5 @@
 <template>
+  <TimeEntryEditor />
   <div class="cards-container flex flex-col justify-items-center">
     <TimeEntryCard
       v-for="timeEntry in timeEntries"
@@ -17,12 +18,13 @@
 import { defineComponent, ref } from "vue";
 
 import TimeEntryCard from "@/views/TimeView/TimeEntryCard.vue";
+import TimeEntryEditor from "./TimeEntryEditor.vue";
 import { useProductiveApiStore } from "@/stores/apiStore";
 import { useNotifyUserStore } from "@/stores/notifiyUserStore";
 
 export default defineComponent({
   name: "TimeView",
-  components: { TimeEntryCard },
+  components: { TimeEntryCard, TimeEntryEditor },
   setup() {
     const apiStore = useProductiveApiStore();
     const notifyUserStore = useNotifyUserStore();

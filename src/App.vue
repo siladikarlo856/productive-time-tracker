@@ -38,11 +38,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from "vue";
+import { defineComponent } from "vue";
 import { OrganizationMemberships } from "./interfaces/OrganizationMemberships";
-import { OrganizationMembershipModel } from "./models/OrganizationMembershipModel";
 import { OrganizationMembershipsModel } from "./models/OrganizationMembershipsModel";
-import { PersonModel } from "./models/PersonModel";
 import { useProductiveApiStore } from "./stores/apiStore";
 import { useNotifyUserStore } from "./stores/notifiyUserStore";
 import { useTimeTrackerStore } from "./stores/timeTrackerStore";
