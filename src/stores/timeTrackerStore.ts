@@ -19,6 +19,18 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   );
   const currentUser = ref<PersonModel>(new PersonModel());
 
+  /**
+   * Get today's in 'YYYY-MM-DD' format
+   * @returns 'YYYY-MM-DD'
+   */
+  function getTodaysDateFormatted(): string {
+    return formatDateYYYYMMDD(new Date());
+  }
+
+  function formatDateYYYYMMDD(date: Date) {
+    return date.toISOString().split("T")[0];
+  }
+
   function findOrgMembershipForOrganization(
     organizationId: string
   ): OrganizationMembershipModel | undefined {
@@ -46,5 +58,6 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
     currentUser,
     findOrgMembershipForOrganization,
     getPersonFromOrganizationMemberships,
+    getTodaysDateFormatted,
   };
 });

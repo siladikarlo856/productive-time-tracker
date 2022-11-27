@@ -1,9 +1,8 @@
 <template>
   <div>
     <div class="m-4">
-      Here are yours time entries for today on project "{{
-        timeTrackerStore.PROJECT_NAME
-      }}"
+      Here are yours time entries for today ({{ new Date().toDateString() }}) on
+      project "{{ timeTrackerStore.PROJECT_NAME }}"
     </div>
   </div>
   <TimeEntryEditor />
@@ -52,8 +51,8 @@ export default defineComponent({
     function fetchTimeEntries() {
       apiStore
         .getFilteredTimeEntries(
-          "2022-11-25",
-          "2022-11-25",
+          timeTrackerStore.getTodaysDateFormatted(),
+          timeTrackerStore.getTodaysDateFormatted(),
           timeTrackerStore.currentUser.id
         )
         .then((filteredTimeEntriesResponse) => {
