@@ -1,0 +1,1338 @@
+{
+  "data": [
+    {
+      "id": "2343343",
+      "type": "services",
+      "attributes": {
+        "name": "My service for development",
+        "position": 3,
+        "deleted_at": null,
+        "billable": false,
+        "description": null,
+        "tracking_enabled": false,
+        "time_tracking_enabled": true,
+        "expense_tracking_enabled": true,
+        "booking_tracking_enabled": false,
+        "origin_service_id": null,
+        "pricing_type_id": 1,
+        "billing_type_id": 3,
+        "worked_time": 10,
+        "unapproved_time": 0,
+        "billable_time": 0,
+        "estimated_time": null,
+        "booked_time": 0,
+        "budgeted_time": 0,
+        "profit_margin": 0,
+        "unit_id": 2,
+        "quantity": "0.0",
+        "discount": null,
+        "future_booked_time": 0,
+        "markup": null,
+        "currency": "HRK",
+        "currency_default": "HRK",
+        "currency_normalized": "HRK",
+        "price": 0,
+        "price_default": 0,
+        "price_normalized": 0,
+        "revenue": 0,
+        "revenue_default": 0,
+        "revenue_normalized": 0,
+        "cost": 1042,
+        "cost_default": 1042,
+        "cost_normalized": 1042,
+        "work_cost": 1042,
+        "work_cost_default": 1042,
+        "work_cost_normalized": 1042,
+        "expense_amount": 0,
+        "expense_amount_default": 0,
+        "expense_amount_normalized": 0,
+        "expense_billable_amount": 0,
+        "expense_billable_amount_default": 0,
+        "expense_billable_amount_normalized": 0,
+        "profit": -1042,
+        "profit_default": -1042,
+        "profit_normalized": -1042,
+        "budget_total": 0,
+        "budget_total_default": 0,
+        "budget_total_normalized": 0,
+        "budget_used": 0,
+        "budget_used_default": 0,
+        "budget_used_normalized": 0,
+        "future_revenue": 0,
+        "future_revenue_default": 0,
+        "future_revenue_normalized": 0,
+        "future_budget_used": 0,
+        "future_budget_used_default": 0,
+        "future_budget_used_normalized": 0,
+        "future_cost": 0,
+        "future_cost_default": 0,
+        "future_cost_normalized": 0,
+        "discount_amount": 0,
+        "discount_amount_default": 0,
+        "discount_amount_normalized": 0,
+        "markup_amount": 0,
+        "markup_amount_default": 0,
+        "markup_amount_normalized": 0
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "service_type": {
+          "data": {
+            "type": "service_types",
+            "id": "153457"
+          }
+        },
+        "deal": {
+          "data": {
+            "type": "deals",
+            "id": "895478"
+          }
+        },
+        "person": {
+          "data": null
+        },
+        "section": {
+          "data": {
+            "type": "sections",
+            "id": "128319"
+          }
+        }
+      }
+    },
+    {
+      "id": "2342970",
+      "type": "services",
+      "attributes": {
+        "name": "Open hours",
+        "position": 1,
+        "deleted_at": null,
+        "billable": false,
+        "description": null,
+        "tracking_enabled": false,
+        "time_tracking_enabled": true,
+        "expense_tracking_enabled": false,
+        "booking_tracking_enabled": false,
+        "origin_service_id": null,
+        "pricing_type_id": 1,
+        "billing_type_id": 3,
+        "worked_time": 242,
+        "unapproved_time": 0,
+        "billable_time": 0,
+        "estimated_time": null,
+        "booked_time": 0,
+        "budgeted_time": 0,
+        "profit_margin": 0,
+        "unit_id": 1,
+        "quantity": "1.0",
+        "discount": null,
+        "future_booked_time": 0,
+        "markup": null,
+        "currency": "HRK",
+        "currency_default": "HRK",
+        "currency_normalized": "HRK",
+        "price": 0,
+        "price_default": 0,
+        "price_normalized": 0,
+        "revenue": 0,
+        "revenue_default": 0,
+        "revenue_normalized": 0,
+        "cost": 25208,
+        "cost_default": 25208,
+        "cost_normalized": 25208,
+        "work_cost": 25208,
+        "work_cost_default": 25208,
+        "work_cost_normalized": 25208,
+        "expense_amount": 0,
+        "expense_amount_default": 0,
+        "expense_amount_normalized": 0,
+        "expense_billable_amount": 0,
+        "expense_billable_amount_default": 0,
+        "expense_billable_amount_normalized": 0,
+        "profit": -25208,
+        "profit_default": -25208,
+        "profit_normalized": -25208,
+        "budget_total": 0,
+        "budget_total_default": 0,
+        "budget_total_normalized": 0,
+        "budget_used": 0,
+        "budget_used_default": 0,
+        "budget_used_normalized": 0,
+        "future_revenue": 0,
+        "future_revenue_default": 0,
+        "future_revenue_normalized": 0,
+        "future_budget_used": 0,
+        "future_budget_used_default": 0,
+        "future_budget_used_normalized": 0,
+        "future_cost": 0,
+        "future_cost_default": 0,
+        "future_cost_normalized": 0,
+        "discount_amount": 0,
+        "discount_amount_default": 0,
+        "discount_amount_normalized": 0,
+        "markup_amount": 0,
+        "markup_amount_default": 0,
+        "markup_amount_normalized": 0
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "service_type": {
+          "data": null
+        },
+        "deal": {
+          "data": {
+            "type": "deals",
+            "id": "895478"
+          }
+        },
+        "person": {
+          "data": null
+        },
+        "section": {
+          "data": {
+            "type": "sections",
+            "id": "128319"
+          }
+        }
+      }
+    },
+    {
+      "id": "2343326",
+      "type": "services",
+      "attributes": {
+        "name": "Open hours",
+        "position": 1,
+        "deleted_at": null,
+        "billable": false,
+        "description": null,
+        "tracking_enabled": false,
+        "time_tracking_enabled": true,
+        "expense_tracking_enabled": false,
+        "booking_tracking_enabled": false,
+        "origin_service_id": null,
+        "pricing_type_id": 1,
+        "billing_type_id": 3,
+        "worked_time": 0,
+        "unapproved_time": 0,
+        "billable_time": 0,
+        "estimated_time": null,
+        "booked_time": 0,
+        "budgeted_time": 0,
+        "profit_margin": 0,
+        "unit_id": 1,
+        "quantity": "1.0",
+        "discount": null,
+        "future_booked_time": 0,
+        "markup": null,
+        "currency": "HRK",
+        "currency_default": "HRK",
+        "currency_normalized": "HRK",
+        "price": 0,
+        "price_default": 0,
+        "price_normalized": 0,
+        "revenue": 0,
+        "revenue_default": 0,
+        "revenue_normalized": 0,
+        "cost": 0,
+        "cost_default": 0,
+        "cost_normalized": 0,
+        "work_cost": 0,
+        "work_cost_default": 0,
+        "work_cost_normalized": 0,
+        "expense_amount": 0,
+        "expense_amount_default": 0,
+        "expense_amount_normalized": 0,
+        "expense_billable_amount": 0,
+        "expense_billable_amount_default": 0,
+        "expense_billable_amount_normalized": 0,
+        "profit": 0,
+        "profit_default": 0,
+        "profit_normalized": 0,
+        "budget_total": 0,
+        "budget_total_default": 0,
+        "budget_total_normalized": 0,
+        "budget_used": 0,
+        "budget_used_default": 0,
+        "budget_used_normalized": 0,
+        "future_revenue": 0,
+        "future_revenue_default": 0,
+        "future_revenue_normalized": 0,
+        "future_budget_used": 0,
+        "future_budget_used_default": 0,
+        "future_budget_used_normalized": 0,
+        "future_cost": 0,
+        "future_cost_default": 0,
+        "future_cost_normalized": 0,
+        "discount_amount": 0,
+        "discount_amount_default": 0,
+        "discount_amount_normalized": 0,
+        "markup_amount": 0,
+        "markup_amount_default": 0,
+        "markup_amount_normalized": 0
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "service_type": {
+          "data": null
+        },
+        "deal": {
+          "data": {
+            "type": "deals",
+            "id": "895563"
+          }
+        },
+        "person": {
+          "data": null
+        },
+        "section": {
+          "data": null
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "id": "153457",
+      "type": "service_types",
+      "attributes": {
+        "name": "Programming",
+        "category_id": null,
+        "archived_at": null,
+        "description": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "assignees": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "895478",
+      "type": "deals",
+      "attributes": {
+        "name": "Productive time tracker",
+        "date": "2022-11-25",
+        "end_date": null,
+        "number": "13",
+        "deal_number": "13",
+        "suffix": null,
+        "time_approval": false,
+        "expense_approval": false,
+        "client_access": false,
+        "deal_type_id": 1,
+        "budget": true,
+        "sales_status_id": null,
+        "sales_status_updated_at": null,
+        "tag_list": [],
+        "origin_deal_id": null,
+        "profit_margin": 0,
+        "discount": null,
+        "email_key": "c9d6f64d250f7b6d63812f57bf55db0c",
+        "purchase_order_number": null,
+        "custom_fields": null,
+        "position": null,
+        "service_type_restricted_tracking": false,
+        "tracking_type_id": 1,
+        "budget_revamp": true,
+        "probability": 100,
+        "budget_warning": null,
+        "billable_time": 0,
+        "estimated_time": 0,
+        "budgeted_time": 0,
+        "worked_time": 252,
+        "time_to_close": null,
+        "unapproved_entries_count": 0,
+        "rejected_entries_count": 0,
+        "lost_comment": null,
+        "closed_at": null,
+        "delivered_on": null,
+        "last_activity_at": "2022-11-26T11:44:27.000+01:00",
+        "deleted_at": null,
+        "created_at": "2022-11-25T22:41:57.694+01:00",
+        "note": null,
+        "sales_closed_at": null,
+        "exchange_rate": "1.0",
+        "exchange_date": "2022-11-25",
+        "sales_closed_on": null,
+        "sample_data": false,
+        "note_interpolated": null,
+        "todo_count": 0,
+        "todo_due_date": null,
+        "currency": "HRK",
+        "currency_default": "HRK",
+        "currency_normalized": "HRK",
+        "revenue": 0,
+        "revenue_default": 0,
+        "revenue_normalized": 0,
+        "services_revenue": 0,
+        "services_revenue_default": 0,
+        "services_revenue_normalized": 0,
+        "cost": 26250,
+        "cost_default": 26250,
+        "cost_normalized": 26250,
+        "profit": -26250,
+        "profit_default": -26250,
+        "profit_normalized": -26250,
+        "invoiced": 0,
+        "invoiced_default": 0,
+        "invoiced_normalized": 0,
+        "pending_invoicing": 0,
+        "pending_invoicing_default": 0,
+        "pending_invoicing_normalized": 0,
+        "draft_invoiced": 0,
+        "draft_invoiced_default": 0,
+        "draft_invoiced_normalized": 0,
+        "amount_credited": 0,
+        "amount_credited_default": 0,
+        "amount_credited_normalized": 0,
+        "expense": 0,
+        "expense_default": 0,
+        "expense_normalized": 0,
+        "budget_total": 0,
+        "budget_total_default": 0,
+        "budget_total_normalized": 0,
+        "budget_used": 0,
+        "budget_used_default": 0,
+        "budget_used_normalized": 0,
+        "projected_revenue": 0,
+        "projected_revenue_default": 0,
+        "projected_revenue_normalized": 0
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "creator": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "company": {
+          "data": {
+            "type": "companies",
+            "id": "413196"
+          }
+        },
+        "document_type": {
+          "data": {
+            "type": "document_types",
+            "id": "68690"
+          }
+        },
+        "responsible": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "deal_status": {
+          "data": null
+        },
+        "project": {
+          "data": {
+            "type": "projects",
+            "id": "261719"
+          }
+        },
+        "lost_reason": {
+          "data": null
+        },
+        "contract": {
+          "data": null
+        },
+        "contact": {
+          "data": null
+        },
+        "subsidiary": {
+          "data": {
+            "type": "subsidiaries",
+            "id": "24750"
+          }
+        },
+        "custom_field_people": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "128319",
+      "type": "sections",
+      "attributes": {
+        "name": null,
+        "preferences": null,
+        "position": 1
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "deal": {
+          "data": {
+            "type": "deals",
+            "id": "895478"
+          }
+        }
+      }
+    },
+    {
+      "id": "895563",
+      "type": "deals",
+      "attributes": {
+        "name": "My budget",
+        "date": "2022-11-25",
+        "end_date": null,
+        "number": "14",
+        "deal_number": "14",
+        "suffix": null,
+        "time_approval": false,
+        "expense_approval": false,
+        "client_access": false,
+        "deal_type_id": 1,
+        "budget": true,
+        "sales_status_id": null,
+        "sales_status_updated_at": null,
+        "tag_list": [],
+        "origin_deal_id": null,
+        "profit_margin": 0,
+        "discount": null,
+        "email_key": "249d4fa3ba15e438e7c22c1a8bfbf97a",
+        "purchase_order_number": null,
+        "custom_fields": null,
+        "position": null,
+        "service_type_restricted_tracking": false,
+        "tracking_type_id": 1,
+        "budget_revamp": true,
+        "probability": 100,
+        "budget_warning": null,
+        "billable_time": 0,
+        "estimated_time": 0,
+        "budgeted_time": 0,
+        "worked_time": 0,
+        "time_to_close": null,
+        "unapproved_entries_count": 0,
+        "rejected_entries_count": 0,
+        "lost_comment": null,
+        "closed_at": null,
+        "delivered_on": null,
+        "last_activity_at": "2022-11-26T11:39:54.000+01:00",
+        "deleted_at": null,
+        "created_at": "2022-11-26T11:39:54.504+01:00",
+        "note": null,
+        "sales_closed_at": null,
+        "exchange_rate": "1.0",
+        "exchange_date": "2022-11-25",
+        "sales_closed_on": null,
+        "sample_data": false,
+        "note_interpolated": null,
+        "todo_count": 0,
+        "todo_due_date": null,
+        "currency": "HRK",
+        "currency_default": "HRK",
+        "currency_normalized": "HRK",
+        "revenue": 0,
+        "revenue_default": 0,
+        "revenue_normalized": 0,
+        "services_revenue": 0,
+        "services_revenue_default": 0,
+        "services_revenue_normalized": 0,
+        "cost": 0,
+        "cost_default": 0,
+        "cost_normalized": 0,
+        "profit": 0,
+        "profit_default": 0,
+        "profit_normalized": 0,
+        "invoiced": 0,
+        "invoiced_default": 0,
+        "invoiced_normalized": 0,
+        "pending_invoicing": 0,
+        "pending_invoicing_default": 0,
+        "pending_invoicing_normalized": 0,
+        "draft_invoiced": 0,
+        "draft_invoiced_default": 0,
+        "draft_invoiced_normalized": 0,
+        "amount_credited": 0,
+        "amount_credited_default": 0,
+        "amount_credited_normalized": 0,
+        "expense": 0,
+        "expense_default": 0,
+        "expense_normalized": 0,
+        "budget_total": 0,
+        "budget_total_default": 0,
+        "budget_total_normalized": 0,
+        "budget_used": 0,
+        "budget_used_default": 0,
+        "budget_used_normalized": 0,
+        "projected_revenue": 0,
+        "projected_revenue_default": 0,
+        "projected_revenue_normalized": 0
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "creator": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "company": {
+          "data": {
+            "type": "companies",
+            "id": "413196"
+          }
+        },
+        "document_type": {
+          "data": {
+            "type": "document_types",
+            "id": "68690"
+          }
+        },
+        "responsible": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "deal_status": {
+          "data": null
+        },
+        "project": {
+          "data": {
+            "type": "projects",
+            "id": "261719"
+          }
+        },
+        "lost_reason": {
+          "data": null
+        },
+        "contract": {
+          "data": null
+        },
+        "contact": {
+          "data": null
+        },
+        "subsidiary": {
+          "data": {
+            "type": "subsidiaries",
+            "id": "24750"
+          }
+        },
+        "custom_field_people": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "352657",
+      "type": "people",
+      "attributes": {
+        "first_name": "Developer",
+        "last_name": "Siladi",
+        "email": "developersiladi@gmail.com",
+        "title": null,
+        "joined_at": "2022-11-25T18:31:21.000+01:00",
+        "last_seen_at": "2022-11-27T22:22:42.963+01:00",
+        "deactivated_at": null,
+        "archived_at": null,
+        "role_id": 1,
+        "invited_at": null,
+        "is_user": true,
+        "user_id": 89408,
+        "tag_list": [],
+        "avatar_url": null,
+        "virtual": false,
+        "custom_fields": null,
+        "autotracking": false,
+        "created_at": "2022-11-25T18:31:14.976+01:00",
+        "placeholder": false,
+        "color_id": null,
+        "contact": {},
+        "sample_data": false,
+        "time_unlocked": false,
+        "time_unlocked_on": null,
+        "time_unlocked_start_date": null,
+        "time_unlocked_end_date": null,
+        "time_unlocked_period_id": null,
+        "time_unlocked_interval": null,
+        "last_activity_at": "2022-11-25T22:40:56.992+01:00",
+        "two_factor_auth": false
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "company": {
+          "data": {
+            "type": "companies",
+            "id": "413196"
+          }
+        },
+        "subsidiary": {
+          "data": {
+            "type": "subsidiaries",
+            "id": "24750"
+          }
+        },
+        "holiday_calendar": {
+          "data": {
+            "type": "holiday_calendars",
+            "id": "23889"
+          }
+        },
+        "custom_role": {
+          "data": null
+        },
+        "custom_field_people": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "413196",
+      "type": "companies",
+      "attributes": {
+        "name": "Productive",
+        "billing_name": null,
+        "vat": null,
+        "default_currency": "HRK",
+        "created_at": "2022-11-25T18:31:14.960+01:00",
+        "archived_at": null,
+        "avatar_url": null,
+        "invoice_email_recipients": {},
+        "custom_fields": null,
+        "company_code": "PROD",
+        "description": null,
+        "due_days": null,
+        "tag_list": [],
+        "contact": {},
+        "sample_data": false,
+        "settings": {}
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "custom_field_people": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "68690",
+      "type": "document_types",
+      "attributes": {
+        "name": "Budget",
+        "tax1_name": "PDV",
+        "tax1_value": "25.0",
+        "tax2_name": null,
+        "tax2_value": null,
+        "locale": "hr_HR",
+        "document_template_id": 1,
+        "exportable_type_id": 3,
+        "note": null,
+        "footer": null,
+        "template_options": {},
+        "archived_at": null,
+        "header_template": null,
+        "body_template": null,
+        "footer_template": null,
+        "scss_template": null,
+        "exporter_options": {},
+        "email_template": null,
+        "email_subject": null,
+        "email_data": {},
+        "line_item_tax": false,
+        "dual_currency": false
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "subsidiary": {
+          "data": {
+            "type": "subsidiaries",
+            "id": "24750"
+          }
+        },
+        "document_style": {
+          "data": null
+        },
+        "attachments": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "261719",
+      "type": "projects",
+      "attributes": {
+        "name": "Productive time tracker",
+        "number": "5",
+        "project_number": "5",
+        "project_type_id": 1,
+        "project_color_id": 7,
+        "last_activity_at": "2022-11-26T11:31:03.000+01:00",
+        "public_access": true,
+        "time_on_tasks": true,
+        "tag_colors": {},
+        "archived_at": null,
+        "created_at": "2022-11-25T22:41:56.812+01:00",
+        "template": false,
+        "budget_closing_date": null,
+        "needs_invoicing": false,
+        "custom_fields": null,
+        "task_custom_fields_ids": null,
+        "sample_data": false
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "company": {
+          "data": {
+            "type": "companies",
+            "id": "413196"
+          }
+        },
+        "project_manager": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "last_actor": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "workflow": {
+          "data": {
+            "type": "workflows",
+            "id": "23635"
+          }
+        },
+        "custom_field_people": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "24750",
+      "type": "subsidiaries",
+      "attributes": {
+        "name": "Subsidiary",
+        "invoice_number_format": null,
+        "invoice_number_scope": null,
+        "archived_at": null,
+        "overhead_per_subsidiary": null,
+        "overhead_amortization_period": null,
+        "overhead_recalculation_day": null,
+        "show_delivery_date": false,
+        "export_integration_type_id": null,
+        "invoice_logo_url": null,
+        "facility_costs": 0,
+        "facility_costs_default": 0,
+        "facility_costs_normalized": 0
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "bill_from": {
+          "data": {
+            "type": "contact_entries",
+            "id": "1041539"
+          }
+        },
+        "integration": {
+          "data": null
+        }
+      }
+    },
+    {
+      "id": "23889",
+      "type": "holiday_calendars",
+      "attributes": {
+        "name": "Holiday calendar",
+        "country": "Croatia",
+        "state": null,
+        "autogenerate_holidays": true
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        }
+      }
+    },
+    {
+      "id": "23635",
+      "type": "workflows",
+      "attributes": {
+        "name": "Default workflow",
+        "archived_at": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "workflow_statuses": {
+          "data": [
+            {
+              "type": "workflow_statuses",
+              "id": "68572"
+            },
+            {
+              "type": "workflow_statuses",
+              "id": "68573"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1041539",
+      "type": "contact_entries",
+      "attributes": {
+        "contactable_type": "subsidiary",
+        "type": "bill_from",
+        "name": "Productive",
+        "email": null,
+        "phone": null,
+        "website": null,
+        "address": null,
+        "city": null,
+        "state": null,
+        "zipcode": null,
+        "country": "Croatia",
+        "vat": null,
+        "billing_address": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "company": {
+          "data": null
+        },
+        "person": {
+          "data": null
+        },
+        "invoice": {
+          "data": null
+        },
+        "subsidiary": {
+          "data": {
+            "type": "subsidiaries",
+            "id": "24750"
+          }
+        }
+      }
+    },
+    {
+      "id": "68572",
+      "type": "workflow_statuses",
+      "attributes": {
+        "name": "Open",
+        "color_id": 11,
+        "position": 1,
+        "category_id": 2
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "workflow": {
+          "data": {
+            "type": "workflows",
+            "id": "23635"
+          }
+        }
+      }
+    },
+    {
+      "id": "68573",
+      "type": "workflow_statuses",
+      "attributes": {
+        "name": "Closed",
+        "color_id": 14,
+        "position": 2,
+        "category_id": 3
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "workflow": {
+          "data": {
+            "type": "workflows",
+            "id": "23635"
+          }
+        }
+      }
+    }
+  ],
+  "links": {
+    "first": "https://api.productive.io/api/v2/services?filter%5Bafter%5D=2022-11-27&filter%5Bbefore%5D=2022-11-27&filter%5Bperson_id%5D=352657&filter%5Bproject_id%5D=261719&filter%5Btime_tracking_enabled%5D=true&page%5Bnumber%5D=1&page%5Bsize%5D=30",
+    "last": "https://api.productive.io/api/v2/services?filter%5Bafter%5D=2022-11-27&filter%5Bbefore%5D=2022-11-27&filter%5Bperson_id%5D=352657&filter%5Bproject_id%5D=261719&filter%5Btime_tracking_enabled%5D=true&page%5Bnumber%5D=1&page%5Bsize%5D=30"
+  },
+  "meta": {
+    "current_page": 1,
+    "total_pages": 1,
+    "total_count": 3,
+    "page_size": 30,
+    "max_page_size": 200,
+    "organization_features": {
+      "custom_fields": {
+        "type": "metered",
+        "limit": 15
+      },
+      "custom_fields_per_project": {
+        "type": "metered",
+        "limit": 10
+      },
+      "public_custom_reports": {
+        "type": "metered",
+        "limit": 100
+      },
+      "private_custom_reports": {
+        "type": "metered",
+        "limit": 100
+      },
+      "public_project_reports": {
+        "type": "metered",
+        "limit": 100
+      },
+      "private_project_reports": {
+        "type": "metered",
+        "limit": 100
+      },
+      "scheduling_placeholders": {
+        "type": "metered",
+        "limit": 10
+      },
+      "workflows": {
+        "type": "metered",
+        "limit": 10
+      },
+      "rate_cards": {
+        "type": "metered",
+        "limit": 30
+      },
+      "teams": {
+        "type": "metered",
+        "limit": 20
+      },
+      "recycle_bin": {
+        "type": "restricted",
+        "available": true,
+        "limit": 730
+      },
+      "multigrouping": {
+        "type": "switch",
+        "available": true
+      },
+      "client_access_to_budgets": {
+        "type": "switch",
+        "available": true
+      },
+      "subsidiaries": {
+        "type": "switch",
+        "available": true
+      },
+      "time_approvals": {
+        "type": "switch",
+        "available": true
+      },
+      "expenses_approvals": {
+        "type": "switch",
+        "available": true
+      },
+      "timeoff_approvals": {
+        "type": "switch",
+        "available": true
+      },
+      "autotracking": {
+        "type": "switch",
+        "available": true
+      },
+      "forecasting": {
+        "type": "switch",
+        "available": true
+      },
+      "webhooks": {
+        "type": "switch",
+        "available": true
+      },
+      "table_pivoting": {
+        "type": "switch",
+        "available": true
+      },
+      "formula_fields": {
+        "type": "switch",
+        "available": true
+      },
+      "single_sign_on": {
+        "type": "switch",
+        "available": true
+      },
+      "duplicate_tasks": {
+        "type": "switch",
+        "available": true
+      },
+      "billable_time_rounding": {
+        "type": "switch",
+        "available": true
+      },
+      "payment_sync": {
+        "type": "switch",
+        "available": true
+      },
+      "booking_methods": {
+        "type": "switch",
+        "available": true
+      },
+      "import_tasks_csv": {
+        "type": "switch",
+        "available": true
+      },
+      "reactions": {
+        "type": "switch",
+        "available": true
+      },
+      "time_week_view": {
+        "type": "switch",
+        "available": true
+      },
+      "subtasks": {
+        "type": "switch",
+        "available": true
+      },
+      "time_calendar_layout": {
+        "type": "switch",
+        "available": true
+      },
+      "theming": {
+        "type": "switch",
+        "available": true
+      },
+      "remove_branding": {
+        "type": "switch",
+        "available": true
+      },
+      "custom_invoicing_email": {
+        "type": "switch",
+        "available": true
+      },
+      "google_calendar_layout": {
+        "type": "switch",
+        "available": true
+      },
+      "pulse": {
+        "type": "switch",
+        "available": true
+      },
+      "slack": {
+        "type": "switch",
+        "available": true
+      },
+      "task_custom_fields_library": {
+        "type": "switch",
+        "available": true
+      },
+      "timeline_layout": {
+        "type": "switch",
+        "available": true
+      },
+      "comment_visibility": {
+        "type": "switch",
+        "available": true
+      },
+      "time_off_sync": {
+        "type": "switch",
+        "available": true
+      },
+      "time_locking": {
+        "type": "switch",
+        "available": true
+      },
+      "docs": {
+        "type": "switch",
+        "available": true
+      },
+      "scheduling_resource_utilization": {
+        "type": "switch",
+        "available": true
+      },
+      "enforce_two_factor_auth": {
+        "type": "switch",
+        "available": true
+      },
+      "personio_integration": {
+        "type": "switch",
+        "available": true
+      },
+      "task_dependencies": {
+        "type": "switch",
+        "available": true
+      },
+      "hris_integration": {
+        "type": "switch",
+        "available": true
+      },
+      "numbering_scheme": {
+        "type": "switch",
+        "available": true
+      },
+      "automations": {
+        "type": "restricted",
+        "available": true,
+        "limit": 25000
+      },
+      "dashboards_sharing": {
+        "type": "switch",
+        "available": true
+      },
+      "currency_picker": {
+        "type": "switch",
+        "available": true
+      },
+      "required_custom_fields": {
+        "type": "switch",
+        "available": true
+      },
+      "restricted_tracking": {
+        "type": "switch",
+        "available": true
+      },
+      "enforce_sso": {
+        "type": "switch",
+        "available": true
+      },
+      "jira_integration": {
+        "type": "switch",
+        "available": true
+      },
+      "docs_versions": {
+        "type": "switch",
+        "available": true
+      },
+      "zapier_integration": {
+        "type": "switch",
+        "available": true
+      },
+      "recurring_budgets": {
+        "type": "switch",
+        "available": true
+      },
+      "restricted_user_roles": {
+        "type": "switch",
+        "available": true
+      },
+      "service_tracking_toggle": {
+        "type": "switch",
+        "available": true
+      },
+      "repeating_tasks": {
+        "type": "switch",
+        "available": true
+      },
+      "save_public_and_private_view": {
+        "type": "switch",
+        "available": true
+      },
+      "overhead_cost": {
+        "type": "switch",
+        "available": true
+      },
+      "show_only_filtered_data": {
+        "type": "switch",
+        "available": true
+      },
+      "invoicing_integrations": {
+        "type": "switch",
+        "available": true
+      },
+      "audit_log": {
+        "type": "switch",
+        "available": true
+      },
+      "hubspot_integration": {
+        "type": "switch",
+        "available": true
+      },
+      "booking_activity_modal": {
+        "type": "switch",
+        "available": true
+      }
+    },
+    "settings": {
+      "systemFlags": {
+        "setting_type": "systemFlags",
+        "value": "[\"addTimeEntryViaTimeTab\",\"adminBillingAccess\",\"allBoardsFiltering\",\"allocations\",\"approvalWorkflow\",\"autotrackingRevamp\",\"boardNavigation\",\"bookingConflictResolverPopup\",\"bookingCustomFields\",\"bookingImport\",\"bookingReportApprovalStatusField\",\"budgetInvoicesTab\",\"budgetServicesRevamp\",\"budgetTimeExpensesTracking\",\"budgetTooltips\",\"budget_overrun\",\"bufferedPopupFilterField\",\"calendarEventSync\",\"checkRealtimeEventOrganization\",\"companyDocumentType\",\"companyTimeNavigation\",\"copyProjectBudgets\",\"costRateInsight\",\"creditNote\",\"cumulativeColumnValues\",\"currencyPicker\",\"dayViewTaskField\",\"dealWarningForTodosDisable\",\"deliveryDateOnInvoiceOption\",\"disableProjectReports\",\"documentTemplateSubsidiary\",\"documentTypeEmailFieldsRevamp\",\"draftComments\",\"draftInvoiceStatus\",\"economicIntegration\",\"economicSubjectLine\",\"editableTimeEntryReportsVs\",\"emailPerRecipientStatus\",\"emptyFilterBehavior\",\"endDateFieldOnTimeEntryReports\",\"entitlementInsights\",\"entitlementsImport\",\"entitlementsModal\",\"exactDivisions\",\"exactServiceMapping\",\"expenseImport\",\"expenseModalPerson\",\"expensesCustomFields\",\"exportCreditNoteQb\",\"exportCreditNoteXero\",\"exportCurrencySymbol\",\"feedFiltering\",\"filterablePlaceholders\",\"financialsScheduledCost\",\"fixPredefinedViewsPersistenceFuckup\",\"force2fa\",\"forecastingForToday\",\"formattingOptions\",\"formattingOptionsWeekdaySetting\",\"formulableCountCol\",\"fortnoxIntegration\",\"freeForNowIntegrationBadge\",\"generalNumberingSystem\",\"generateHolidaysAutomatically\",\"globalSearchRevamp\",\"globalTaskCustomFields\",\"granularNotifications\",\"halfDayTimeOff\",\"harvestImport\",\"hideEstimatesForClient\",\"holidayCalendar\",\"improved_alfred\",\"insightsKacunko\",\"invoiceCreatedAtField\",\"invoiceDocumentTypeHeader\",\"invoiceExporterSettings\",\"invoiceNumberScope\",\"invoicesCreatorField\",\"invoicesSentOnBulkEdit\",\"juniorCoordinator\",\"jwtToken\",\"kanbanBulkSelection\",\"kanbanLayout\",\"limitProjectInsights\",\"listLayout\",\"marketplace\",\"marketplaceBanner\",\"minimizedItemsTray\",\"newBookingActions\",\"newProjectSidebar\",\"newTaskPopoverForm\",\"office365Calendar\",\"overheadTables\",\"peopleLastActivityAt\",\"perPeriodBudgetValues\",\"personioIntegration\",\"personioSync\",\"placeholderWorkingHours\",\"privateComments\",\"progressToFinancialsReport\",\"pulse\",\"quickBooksExportUpdate\",\"quickSearch\",\"quickbooksCodeMapping\",\"rateCards\",\"rateImport\",\"recycleBin\",\"recycleBinDestroyers\",\"remainingTimeRename\",\"removeMyExpenses\",\"repeatingTasks\",\"requiredCustomFields\",\"salesClosedOn\",\"salesStatusBulkEdit\",\"sampleDataWarning\",\"savePopup\",\"schedulingDateFilters\",\"schedulingShowOnlyFilteredData\",\"schedulingSupplementalData\",\"searchDesign\",\"serviceMarkup\",\"servicePerson\",\"serviceTypeAssignments\",\"serviceTypeMerge\",\"servicesColumnEdit\",\"servicesInsightUnit\",\"settingsTaskCfsLibrary\",\"showOnlyTotalsByDefault\",\"sidebar\",\"simplifiedDateFormats\",\"slackIntegration\",\"slackPulse\",\"slackSettings\",\"sortPopup\",\"subsidiaryOnInvoiceAndBudget\",\"subtasks\",\"subtasksSort\",\"syncedInvoiceDueDate\",\"tableViewRevamp\",\"taskDependencies\",\"taskEstimates\",\"taskModalRework\",\"taxPerLineItem\",\"timeApprovalsInlineEdit\",\"timeEntriesLock\",\"timeEntriesReportsStartedAt\",\"timeEstimateIncludingSubtasks\",\"timeOffStatusSync\",\"timeReportsTotalWorkCost\",\"timelineLayout\",\"timersEndpoint\",\"uniqueCompanyCode\",\"updateInvoice\",\"updateInvoiceAttributionDatePeriod\",\"userManagement\",\"viewsRevamp\",\"virtualUser\",\"vsRealtimeReloadOnUpdate\",\"workflows\",\"workflowsListLayoutGrouper\",\"xeroServiceTypeMappings\"]",
+        "updated_at": "2022-11-21T10:01:29.208+01:00"
+      }
+    }
+  }
+}

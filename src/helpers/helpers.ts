@@ -32,3 +32,15 @@ export function deepCopy(obj: any): any {
 
   throw new Error("Unable to copy obj! Its type isn't supported.");
 }
+
+/**
+ * Get today's in 'YYYY-MM-DD' format
+ * @returns 'YYYY-MM-DD'
+ */
+export function getTodaysDateFormatted(): string {
+  return formatDateYYYYMMDD(new Date());
+}
+
+export function formatDateYYYYMMDD(date: Date) {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+}

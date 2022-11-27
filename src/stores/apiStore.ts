@@ -1,10 +1,13 @@
+import { deepCopy } from "../helpers/helpers";
+import { ProductiveResponseData } from "@/interfaces/ProductiveResponseData";
 import { Axios } from "axios";
 import { defineStore } from "pinia";
-import { ref, computed, inject } from "vue";
+import { ref, inject } from "vue";
 
 export const useProductiveApiStore = defineStore("productive-api-store", () => {
   // Dependency injection
   const axios = inject<Axios>("axios"); // inject axios
+  const getAvailableServicesForProjectResponse = ref<ProductiveResponseData>();
 
   function getOrganizationMemberships() {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
@@ -139,7 +142,8 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
           "GET getAvailableServicesForProject /services",
           response.data
         );
-        return response;
+        getAvailableServicesForProjectResponse.value = deepCopy(response.data);
+        return getAvailableServicesForProjectResponse.value;
       })
       .catch((err) => {
         console.error("API call error", err);

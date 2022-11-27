@@ -1,8 +1,12 @@
+import { getTodaysDateFormatted } from "@/helpers/helpers";
+import { ProductiveDTO } from "@/interfaces/ProductiveDTO";
+import { ServiceDTO } from "@/interfaces/ServiceDTO";
 import { OrganizationMembershipModel } from "@/models/OrganizationMembershipModel";
 import { OrganizationMembershipsModel } from "@/models/OrganizationMembershipsModel";
 import { PersonModel } from "@/models/PersonModel";
+import { ServicePresentableModel } from "@/presentables/ServicePresentableModel";
 import { defineStore } from "pinia";
-import { ref, computed, reactive } from "vue";
+import { ref } from "vue";
 import { useProductiveApiStore } from "./apiStore";
 
 export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
@@ -24,7 +28,7 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   const currentUser = ref<PersonModel>(new PersonModel());
 
   const timeEntries = ref<Array<any>>([]);
-  const availableServicesForProject = ref<Array<any>>([]);
+  const availableServicesForProject = ref<Array<ServicePresentableModel>>([]);
 
   function fetchTimeEntryPresentables() {
     apiStore
@@ -34,14 +38,9 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
         currentUser.value.id
       )
       .then((filteredTimeEntriesResponse) => {
-        console.log("Time view getFilteredTimeEntries");
         apiStore.getAllServices().then((allServicesResponse) => {
-          console.log("get all services", allServicesResponse);
-
           timeEntries.value = [];
           filteredTimeEntriesResponse.data.data.forEach((timeEntryDTO: any) => {
-            console.log("timeEntryDTO object", timeEntryDTO);
-
             const serviceName = allServicesResponse.data.data.find(
               (serviceObject: any) =>
                 serviceObject.id === timeEntryDTO.relationships.service.data.id
@@ -53,7 +52,6 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
               timeInMinutes: timeEntryDTO.attributes.time,
               serviceName: serviceName,
             };
-            console.log("timeEntryPresentableObj", timeEntryPresentableObj);
 
             timeEntries.value.push(timeEntryPresentableObj);
           });
@@ -72,25 +70,19 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
         PROJECT_ID
       )
       .then((response) => {
-        availableServicesForProject.value = response.data.data;
-        console.log(
-          "fetchAvailableServicesForProject then in store",
-          availableServicesForProject.value
-        );
-        return response;
+        if (Array.isArray(response?.data)) {
+          const servicesArray = response?.data?.map(
+            (serviceDTO) =>
+              new ServicePresentableModel(
+                serviceDTO as unknown as ServiceDTO,
+                response?.included
+              )
+          );
+          availableServicesForProject.value =
+            servicesArray || ([] as Array<ServicePresentableModel>);
+        }
+        return availableServicesForProject;
       });
-  }
-
-  /**
-   * Get today's in 'YYYY-MM-DD' format
-   * @returns 'YYYY-MM-DD'
-   */
-  function getTodaysDateFormatted(): string {
-    return formatDateYYYYMMDD(new Date());
-  }
-
-  function formatDateYYYYMMDD(date: Date) {
-    return date.toISOString().split("T")[0];
   }
 
   function findOrgMembershipForOrganization(
@@ -122,7 +114,6 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
     availableServicesForProject,
     findOrgMembershipForOrganization,
     getPersonFromOrganizationMemberships,
-    getTodaysDateFormatted,
     fetchTimeEntryPresentables,
     fetchAvailableServicesForProject,
   };

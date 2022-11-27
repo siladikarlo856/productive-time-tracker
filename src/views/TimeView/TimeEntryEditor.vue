@@ -58,7 +58,7 @@
                 :key="service.id"
                 :value="service.id"
               >
-                {{ service.attributes.name }}
+                {{ service.budgetName }}: {{ service.name }}
               </option>
             </select>
             <div
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="flex flex-wrap flex-grow justify-end w-1/6">
-        <div class="mb-6 md:mb-0 w-full">
+        <div class="mt-1 w-full">
           <div class="block">
             <br />
           </div>
@@ -133,8 +133,10 @@
 import { useProductiveApiStore } from "@/stores/apiStore";
 import { useNotifyUserStore } from "@/stores/notifiyUserStore";
 import { useTimeTrackerStore } from "@/stores/timeTrackerStore";
-import { defineComponent, onMounted, ref, watchEffect } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import LoadingButton from "@/components/LoadingButton/LoadingButton.vue";
+import { CreateTimeEntryCommandModelImpl } from "@/models/CreateTimeEntryCommandModelImpl";
+import { getTodaysDateFormatted } from "@/helpers/helpers";
 
 export default defineComponent({
   name: "TimeEntryEditor",
@@ -150,19 +152,7 @@ export default defineComponent({
 
     const isLoading = ref(false);
 
-    const availableServices = [
-      {
-        id: "2343343",
-        name: "My service for development",
-      },
-      {
-        id: "2343326",
-        name: "Open hours",
-      },
-    ];
-
     function onAddNewClick() {
-      console.log("Add new: ", selectedService.value, note.value);
       isLoading.value = true;
       createTimeEntry()
         .then(() => {
@@ -175,34 +165,14 @@ export default defineComponent({
     }
 
     function createTimeEntry() {
-      console.log("Create button handler");
-      const postTimeEntryBody = {
-        data: {
-          type: "time_entries",
-          attributes: {
-            note: note.value,
-            date: timeTrackerStore.getTodaysDateFormatted(),
-            time: timeInMinutes.value,
-          },
-          relationships: {
-            person: {
-              data: {
-                type: "people",
-                id: timeTrackerStore.currentUser.id,
-              },
-            },
-            service: {
-              data: {
-                type: "services",
-                id: selectedService.value,
-              },
-            },
-            task: {
-              data: null,
-            },
-          },
-        },
-      };
+      const postTimeEntryBody = new CreateTimeEntryCommandModelImpl(
+        note.value,
+        getTodaysDateFormatted(),
+        timeInMinutes.value,
+        timeTrackerStore.currentUser.id,
+        selectedService.value
+      );
+
       return apiStore
         .postTimeEntry(postTimeEntryBody)
         .then(() => {
@@ -222,13 +192,7 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      timeTrackerStore.fetchAvailableServicesForProject().then((response) => {
-        console.log("Time entry Editor on mounted", response);
-      });
-    });
-
-    watchEffect(() => {
-      // TODO: reactive validation
+      timeTrackerStore.fetchAvailableServicesForProject();
     });
 
     return {
@@ -236,7 +200,6 @@ export default defineComponent({
       selectedService,
       note,
       timeInMinutes,
-      availableServices,
       isLoading,
       onAddNewClick,
     };
