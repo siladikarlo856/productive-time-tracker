@@ -7,15 +7,14 @@
         <div class="mb-6 md:mb-0 w-full">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-last-name"
+            for="project"
           >
             Project
           </label>
           <div class="relative">
             <select
               class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="service"
-              v-model="selectedService"
+              id="project"
             >
               <option value="" disabled selected>
                 {{ timeTrackerStore.PROJECT_NAME }}
@@ -55,11 +54,11 @@
             >
               <option value="" disabled selected>Select service</option>
               <option
-                v-for="service in availableServices"
+                v-for="service in timeTrackerStore.availableServicesForProject"
                 :key="service.id"
                 :value="service.id"
               >
-                {{ service.name }}
+                {{ service.attributes.name }}
               </option>
             </select>
             <div
@@ -82,13 +81,13 @@
         <div class="px-2 mb-6 md:mb-0 w-full">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-last-name"
+            for="time"
           >
             Time [min]
           </label>
           <input
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-last-name"
+            id="time"
             type="number"
             v-model="timeInMinutes"
           />
@@ -134,7 +133,7 @@
 import { useProductiveApiStore } from "@/stores/apiStore";
 import { useNotifyUserStore } from "@/stores/notifiyUserStore";
 import { useTimeTrackerStore } from "@/stores/timeTrackerStore";
-import { defineComponent, ref, watchEffect } from "vue";
+import { defineComponent, onMounted, ref, watchEffect } from "vue";
 import LoadingButton from "@/components/LoadingButton/LoadingButton.vue";
 
 export default defineComponent({
@@ -221,6 +220,12 @@ export default defineComponent({
       note.value = "";
       timeInMinutes.value = undefined;
     }
+
+    onMounted(() => {
+      timeTrackerStore.fetchAvailableServicesForProject().then((response) => {
+        console.log("Time entry Editor on mounted", response);
+      });
+    });
 
     watchEffect(() => {
       // TODO: reactive validation
