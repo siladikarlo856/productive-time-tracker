@@ -24,6 +24,7 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   const currentUser = ref<PersonModel>(new PersonModel());
 
   const timeEntries = ref<Array<any>>([]);
+  const availableServicesForProject = ref<Array<any>>([]);
 
   function fetchTimeEntryPresentables() {
     apiStore
@@ -59,6 +60,24 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
           return allServicesResponse;
         });
         return filteredTimeEntriesResponse;
+      });
+  }
+
+  function fetchAvailableServicesForProject() {
+    return apiStore
+      .getAvailableServicesForProject(
+        getTodaysDateFormatted(),
+        getTodaysDateFormatted(),
+        currentUser.value.id,
+        PROJECT_ID
+      )
+      .then((response) => {
+        availableServicesForProject.value = response.data;
+        console.log(
+          "fetchAvailableServicesForProject then in store",
+          availableServicesForProject.value
+        );
+        return response;
       });
   }
 
@@ -100,9 +119,11 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
     orgMembershipForCurrentOrganization,
     currentUser,
     timeEntries,
+    availableServicesForProject,
     findOrgMembershipForOrganization,
     getPersonFromOrganizationMemberships,
     getTodaysDateFormatted,
     fetchTimeEntryPresentables,
+    fetchAvailableServicesForProject,
   };
 });
