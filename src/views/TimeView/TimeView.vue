@@ -1,10 +1,17 @@
 <template>
+  <div>
+    <div class="m-4">
+      Here are yours time entries for today on project "{{
+        timeTrackerStore.PROJECT_NAME
+      }}"
+    </div>
+  </div>
   <TimeEntryEditor />
   <div class="cards-container flex flex-col justify-items-center">
     <TimeEntryCard
       v-for="timeEntry in timeEntries"
       :key="timeEntry.id"
-      project-title="Productive time tracker"
+      :project-title="timeTrackerStore.PROJECT_NAME"
       :service-title="timeEntry.serviceName"
       :note-text="timeEntry.noteText"
       :duration-in-minutes="timeEntry.timeInMinutes"
@@ -15,12 +22,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 
 import TimeEntryCard from "@/views/TimeView/TimeEntryCard.vue";
 import TimeEntryEditor from "./TimeEntryEditor.vue";
 import { useProductiveApiStore } from "@/stores/apiStore";
 import { useNotifyUserStore } from "@/stores/notifiyUserStore";
+import { useTimeTrackerStore } from "@/stores/timeTrackerStore";
+import { PersonModel } from "@/models/PersonModel";
 
 export default defineComponent({
   name: "TimeView",
@@ -28,38 +37,65 @@ export default defineComponent({
   setup() {
     const apiStore = useProductiveApiStore();
     const notifyUserStore = useNotifyUserStore();
+    const timeTrackerStore = useTimeTrackerStore();
 
     const timeEntries = ref<Array<any>>([]);
 
     // Lifecycle hooks
-    // On create
-    apiStore
-      .getFilteredTimeEntries("2022-11-25", "2022-11-25", 352657)
-      .then((response) => {
-        console.log("TimeView getFilteredTimeEntries", response);
+    onMounted(() => {
+      console.log("TimeView: get time entries");
+      fetchTimeEntries();
 
-        response.data.data.forEach(async (timeEntryDTO: any) => {
-          await apiStore
-            .getServiceById(timeEntryDTO.relationships.service.data.id)
-            .then((res) => {
-              const timeEntryPresentableObj = {
-                id: timeEntryDTO.id,
-                noteText: timeEntryDTO.attributes.note,
-                timeInMinutes: timeEntryDTO.attributes.time,
-                serviceName: res.data.data.attributes.name,
-              };
-              console.log("timeEntryPresentableObj", timeEntryPresentableObj);
+      timeTrackerStore.$subscribe(storeSubscriptionHandler);
+    });
 
-              timeEntries.value.push(timeEntryPresentableObj);
-            });
+    function fetchTimeEntries() {
+      apiStore
+        .getFilteredTimeEntries(
+          "2022-11-25",
+          "2022-11-25",
+          timeTrackerStore.currentUser.id
+        )
+        .then((filteredTimeEntriesResponse) => {
+          console.log("Time view getFilteredTimeEntries");
+          apiStore.getAllServices().then((allServicesResponse) => {
+            console.log("get all services", allServicesResponse);
+
+            filteredTimeEntriesResponse.data.data.forEach(
+              (timeEntryDTO: any) => {
+                console.log("timeEntryDTO object", timeEntryDTO);
+
+                const serviceName = allServicesResponse.data.data.find(
+                  (serviceObject: any) =>
+                    serviceObject.id ===
+                    timeEntryDTO.relationships.service.data.id
+                )?.attributes?.name;
+
+                const timeEntryPresentableObj = {
+                  id: timeEntryDTO.id,
+                  noteText: timeEntryDTO.attributes.note,
+                  timeInMinutes: timeEntryDTO.attributes.time,
+                  serviceName: serviceName,
+                };
+                console.log("timeEntryPresentableObj", timeEntryPresentableObj);
+
+                timeEntries.value.push(timeEntryPresentableObj);
+              }
+            );
+            return allServicesResponse;
+          });
+          return filteredTimeEntriesResponse;
         });
-        return response;
-      })
-      .then((response) => {
-        console.log("timeEntries created", response.data.data);
-      });
+    }
 
-    function onTimeEntryDelete(timeEntryId: number) {
+    function storeSubscriptionHandler(mutation: any, state: any) {
+      if (mutation?.events?.newValue instanceof PersonModel) {
+        console.log("Person mutated", mutation, state);
+        fetchTimeEntries();
+      }
+    }
+
+    function onTimeEntryDelete(timeEntryId: string) {
       console.log("onTimeEntryDelete", timeEntryId);
       apiStore
         .deleteTimeEntryById(timeEntryId)
@@ -75,13 +111,18 @@ export default defineComponent({
         });
     }
 
-    function onTimeEntryEdit(timeEntryId: number) {
+    function onTimeEntryEdit(timeEntryId: string) {
       notifyUserStore.notifyUserWithWarningMessage(
         "Edit feature is not implemented"
       );
     }
 
-    return { timeEntries, onTimeEntryDelete, onTimeEntryEdit };
+    return {
+      timeTrackerStore,
+      timeEntries,
+      onTimeEntryDelete,
+      onTimeEntryEdit,
+    };
   },
 });
 </script>

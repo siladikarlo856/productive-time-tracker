@@ -8,6 +8,7 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   // CONSTANTS
   const ORGANIZATION_ID = "23881";
   const PROJECT_ID = "261719";
+  const PROJECT_NAME = "Productive time tracker";
 
   // REACTIVE
   const organizationMemberships = ref<OrganizationMembershipsModel>(
@@ -39,6 +40,7 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   return {
     ORGANIZATION_ID,
     PROJECT_ID,
+    PROJECT_NAME,
     organizationMemberships,
     orgMembershipForCurrentOrganization,
     currentUser,
