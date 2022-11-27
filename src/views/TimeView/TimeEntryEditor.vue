@@ -49,6 +49,10 @@
           <div class="relative">
             <select
               class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              :class="{
+                'border-2': isServiceFieldInvalid,
+                'border-red-600': isServiceFieldInvalid,
+              }"
               id="service"
               v-model="selectedService"
             >
@@ -58,7 +62,7 @@
                 :key="service.id"
                 :value="service.id"
               >
-                {{ service.attributes.name }}
+                {{ service.budgetName }}: {{ service.name }}
               </option>
             </select>
             <div
@@ -77,7 +81,7 @@
           </div>
         </div>
       </div>
-      <div class="flex w-2/4 flex-grow">
+      <div class="flex w-1/4 flex-grow">
         <div class="px-2 mb-6 md:mb-0 w-full">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -91,20 +95,6 @@
             type="number"
             v-model="timeInMinutes"
           />
-        </div>
-      </div>
-      <div class="flex flex-wrap flex-grow justify-end w-1/6">
-        <div class="mb-6 md:mb-0 w-full">
-          <div class="block">
-            <br />
-          </div>
-          <LoadingButton
-            class="px-4 py-2 w-20 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none justify-center w-full flex-grow"
-            @click="onAddNewClick"
-            :isLoading="isLoading"
-          >
-            Add new
-          </LoadingButton>
         </div>
       </div>
     </div>
@@ -125,6 +115,20 @@
           />
         </div>
       </div>
+      <div class="flex flex-wrap justify-end w-1/5">
+        <div class="mt-1 ml-4 w-full">
+          <div class="block">
+            <br />
+          </div>
+          <LoadingButton
+            class="px-4 py-2 w-20 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none justify-center w-full flex-grow"
+            @click="onAddNewClick"
+            :isLoading="isLoading"
+          >
+            Add new
+          </LoadingButton>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -135,6 +139,9 @@ import { useNotifyUserStore } from "@/stores/notifiyUserStore";
 import { useTimeTrackerStore } from "@/stores/timeTrackerStore";
 import { defineComponent, onMounted, ref, watchEffect } from "vue";
 import LoadingButton from "@/components/LoadingButton/LoadingButton.vue";
+import { CreateTimeEntryCommandModelImpl } from "@/models/CreateTimeEntryCommandModelImpl";
+import { getTodaysDateFormatted } from "@/helpers/helpers";
+import { validate } from "@babel/types";
 
 export default defineComponent({
   name: "TimeEntryEditor",
@@ -149,60 +156,47 @@ export default defineComponent({
     const timeInMinutes = ref();
 
     const isLoading = ref(false);
-
-    const availableServices = [
-      {
-        id: "2343343",
-        name: "My service for development",
-      },
-      {
-        id: "2343326",
-        name: "Open hours",
-      },
-    ];
+    const isServiceFieldInvalid = ref(false);
 
     function onAddNewClick() {
-      console.log("Add new: ", selectedService.value, note.value);
       isLoading.value = true;
-      createTimeEntry()
+      validateTimeEntry()
         .then(() => {
-          timeTrackerStore.fetchTimeEntryPresentables();
+          createTimeEntry()
+            .then(() => {
+              timeTrackerStore.fetchTimeEntryPresentables();
+            })
+            .finally(() => {
+              clearForm();
+              isLoading.value = false;
+            });
         })
-        .finally(() => {
-          clearForm();
+        .catch(() => {
+          notifyUserStore.notifyUserWithErrorMessage(
+            "Service field is required."
+          );
           isLoading.value = false;
         });
     }
 
+    function validateTimeEntry(): Promise<void> {
+      if (selectedService.value) {
+        isServiceFieldInvalid.value = false;
+        return Promise.resolve();
+      }
+      isServiceFieldInvalid.value = true;
+      return Promise.reject();
+    }
+
     function createTimeEntry() {
-      console.log("Create button handler");
-      const postTimeEntryBody = {
-        data: {
-          type: "time_entries",
-          attributes: {
-            note: note.value,
-            date: timeTrackerStore.getTodaysDateFormatted(),
-            time: timeInMinutes.value,
-          },
-          relationships: {
-            person: {
-              data: {
-                type: "people",
-                id: timeTrackerStore.currentUser.id,
-              },
-            },
-            service: {
-              data: {
-                type: "services",
-                id: selectedService.value,
-              },
-            },
-            task: {
-              data: null,
-            },
-          },
-        },
-      };
+      const postTimeEntryBody = new CreateTimeEntryCommandModelImpl(
+        note.value,
+        getTodaysDateFormatted(),
+        timeInMinutes.value,
+        timeTrackerStore.currentUser.id,
+        selectedService.value
+      );
+
       return apiStore
         .postTimeEntry(postTimeEntryBody)
         .then(() => {
@@ -222,13 +216,13 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      timeTrackerStore.fetchAvailableServicesForProject().then((response) => {
-        console.log("Time entry Editor on mounted", response);
-      });
+      timeTrackerStore.fetchAvailableServicesForProject();
     });
 
     watchEffect(() => {
-      // TODO: reactive validation
+      if (isServiceFieldInvalid.value && selectedService.value) {
+        isServiceFieldInvalid.value = false;
+      }
     });
 
     return {
@@ -236,8 +230,8 @@ export default defineComponent({
       selectedService,
       note,
       timeInMinutes,
-      availableServices,
       isLoading,
+      isServiceFieldInvalid,
       onAddNewClick,
     };
   },
