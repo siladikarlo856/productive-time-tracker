@@ -1,7 +1,7 @@
-import { Person } from "./Person";
+import { Relationship } from "./Relationship";
 
 export interface OrganizationMembershipRelationships {
-  person: {
-    data: Person;
-  };
+  person: Relationship;
+  organization: Relationship;
+  [key: string]: Relationship;
 }

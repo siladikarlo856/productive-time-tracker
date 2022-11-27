@@ -12,12 +12,12 @@ describe("OrganizationMembershipModel test", function () {
     });
   });
   describe("Create object from API response", () => {
-    const orgMemebershipData = getOrganizationMemberships.data[0];
+    const orgMembershipData = getOrganizationMemberships.data[0];
     it("should initialize from data", () => {
-      const modelObj = new OrganizationMembershipModel(orgMemebershipData);
+      const modelObj = new OrganizationMembershipModel(orgMembershipData);
       // console.log("Initialzied model:", modelObj);
       expect(modelObj).to.be.not.empty;
-      expect(modelObj.relationships.person.data.id).to.equal("352657");
+      expect(modelObj.relationships.person?.data?.id).to.equal("352657");
     });
   });
 });

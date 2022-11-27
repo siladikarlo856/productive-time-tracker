@@ -12,8 +12,6 @@ describe("OrganizationMembershipRelationshipsModel test", function () {
       expect(modelObj.person.data).to.be.not.empty;
       expect(modelObj.person.data.id).to.equal("");
       expect(modelObj.person.data.type).to.equal("");
-      expect(modelObj.person.data.attributes).to.equal(undefined);
-      expect(modelObj.person.data.relationships).to.equal(undefined);
     });
   });
   describe("Create object from API response", () => {
