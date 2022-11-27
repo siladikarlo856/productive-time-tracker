@@ -1,0 +1,1777 @@
+{
+  "data": [
+    {
+      "id": "352657",
+      "type": "organization_memberships",
+      "attributes": {
+        "updated_at": "2022-11-26T17:01:10.538+01:00",
+        "position": null,
+        "tasks_layout_id": 1,
+        "time_reminders": true,
+        "email_notifications": true,
+        "weekly_emails": true,
+        "notification_preference": {},
+        "granular_notification_preferences": {
+          "deals": {
+            "emails": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "comments": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "mentions": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "assigned_todos": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "notes": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "tasks": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "comments": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "mentions": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "assigned_todos": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "people": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "comments": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "mentions": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "budgets": {
+            "emails": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "comments": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "mentions": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "reports": {
+            "weekly_report": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "invoices": {
+            "emails": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "comments": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "mentions": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "payments": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "projects": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "companies": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "comments": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "mentions": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "reminders": {
+            "tasks_due": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "time_tracking": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "time_approvals": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "expense_approvals": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "time_off_approvals": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "discussions": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "mentions": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          },
+          "memberships": {
+            "created": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            },
+            "updated": {
+              "app": true,
+              "push": true,
+              "email": true,
+              "slack": true
+            }
+          }
+        },
+        "preferences": "{\"recent_data\":[\"b:895478\",\"b:895478\",\"p:261719\",\"p:261690\",\"b:895563\",\"p:261691\",\"p:261719\",\"t:3725362\",\"p:261719\",\"b:895478\",\"t:3725362\",\"p:261719\",\"t:3724883\",\"p:261692\",\"p:261690\",\"p:261692\",\"p:261719\",\"t:3725362\",\"p:261719\",\"b:895478\",\"b:895478\",\"t:3725362\",\"p:261719\"],\"default_dashboard_id\":\"55087\",\"collapsed_board_group_ids\":[]}",
+        "tasks_filter_id": null,
+        "deals_filter_id": null,
+        "projects_filter_id": null,
+        "people_filter_id": null,
+        "companies_filter_id": null,
+        "company_time_filter_id": null,
+        "invoices_filter_id": null,
+        "budgets_filter_id": null,
+        "expenses_filter_id": null,
+        "bookings_filter_id": null,
+        "payments_filter_id": null,
+        "time_reports_filter_id": null,
+        "salary_reports_filter_id": null,
+        "time_entry_reports_filter_id": null,
+        "booking_approvals_filter_id": null,
+        "expense_approvals_filter_id": null,
+        "time_approvals_filter_id": null,
+        "docs_filter_id": null
+      },
+      "relationships": {
+        "tasks_favorite_filter": {
+          "data": null
+        },
+        "deals_favorite_filter": {
+          "data": null
+        },
+        "projects_favorite_filter": {
+          "data": null
+        },
+        "people_favorite_filter": {
+          "data": null
+        },
+        "companies_favorite_filter": {
+          "data": null
+        },
+        "company_time_favorite_filter": {
+          "data": null
+        },
+        "invoices_favorite_filter": {
+          "data": null
+        },
+        "budgets_favorite_filter": {
+          "data": null
+        },
+        "expenses_favorite_filter": {
+          "data": null
+        },
+        "bookings_favorite_filter": {
+          "data": null
+        },
+        "payments_favorite_filter": {
+          "data": null
+        },
+        "time_reports_favorite_filter": {
+          "data": null
+        },
+        "salary_reports_favorite_filter": {
+          "data": null
+        },
+        "time_entry_reports_favorite_filter": {
+          "data": null
+        },
+        "booking_approvals_favorite_filter": {
+          "data": null
+        },
+        "expense_approvals_favorite_filter": {
+          "data": null
+        },
+        "time_approvals_favorite_filter": {
+          "data": null
+        },
+        "docs_favorite_filter": {
+          "data": null
+        },
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "person": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "user": {
+          "data": {
+            "type": "users",
+            "id": "89408"
+          }
+        },
+        "timer": {
+          "data": null
+        },
+        "organization_membership_counts": {
+          "data": {
+            "type": "organization_membership_counts",
+            "id": "352657"
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "id": "23881",
+      "type": "organizations",
+      "attributes": {
+        "name": "Productive",
+        "time_reminders": true,
+        "time_reminder_id": 2,
+        "time_reminder_at": 10,
+        "time_reminder_condition": 100,
+        "working_days": [],
+        "working_hours": [8, 8, 8, 8, 8, 0, 0],
+        "man_day_minutes": 480,
+        "organization_type_id": 1,
+        "invitation_token": "24d99d6388d76d2742ccae745e9cfeb0",
+        "due_days": 10,
+        "email_key": "productive14",
+        "addons": [
+          "allocations",
+          "boardNavigation",
+          "bookingConflictResolverPopup",
+          "bookingImport",
+          "budgetInvoicesTab",
+          "budgetServicesRevamp",
+          "budgetTimeExpensesTracking",
+          "bulkMoveBookings",
+          "creditNote",
+          "currencyPicker",
+          "dashboards_revamp",
+          "dayViewTaskField",
+          "disableProjectReports",
+          "draftComments",
+          "draftInvoiceStatus",
+          "duplicateAndArchiveRateCards",
+          "expensesCustomFields",
+          "exportCreditNoteQb",
+          "exportCreditNoteXero",
+          "exportCurrencySymbol",
+          "freeForNowIntegrationBadge",
+          "generalNumberingSystem",
+          "globalSearchRevamp",
+          "granularNotifications",
+          "hideEstimatesForClient",
+          "insightsKacunko",
+          "invoicing",
+          "kanbanBulkSelection",
+          "kanbanLayout",
+          "listLayout",
+          "marketplace",
+          "marketplaceBanner",
+          "nestedExpenseOptions",
+          "newBookingActions",
+          "newProjectSidebar",
+          "payrollReport",
+          "placeholderWorkingHours",
+          "quickBooksExportUpdate",
+          "removeMyExpenses",
+          "requiredCustomFields",
+          "savePopup",
+          "schedulingDateFilters",
+          "schedulingShowOnlyFilteredData",
+          "schedulingSupplementalData",
+          "searchDesign",
+          "serviceTypeAssignments",
+          "serviceTypeMerge",
+          "servicesInsightUnit",
+          "sidebar",
+          "slackPulse",
+          "sortPopup",
+          "subtasksSort",
+          "taskDependencies",
+          "task_time_tracking",
+          "taxPerLineItem",
+          "teams",
+          "timeEstimateIncludingSubtasks",
+          "time_tracking_estimate",
+          "timersEndpoint",
+          "workflows",
+          "workflowsListLayoutGrouper"
+        ],
+        "time_zone": "Zagreb",
+        "avatar_url": null,
+        "onboarding_progress": "{\"active\":false,\"steps\":[\"salary\",\"project\",\"time\",\"budget\"],\"percentage\":80}",
+        "week_start_day_id": 3,
+        "weight": 1,
+        "metrics": "eyJzb3VyY2UiOiJnb29nbGUuY29tIiwibWVkaXVtIjoib3JnYW5pYyIsImNhbXBhaWduIjpudWxsLCJjb250ZW50IjpudWxsfQ==",
+        "erector_id": 51287,
+        "customer_success_specialist_id": null,
+        "sample_data_imported_at": "2022-11-25T18:31:37.851+01:00",
+        "sample_data_reverted_at": null,
+        "verified_at": null,
+        "time_format_id": 1,
+        "number_format_id": 1,
+        "date_format_id": 1,
+        "time_display_id": 1,
+        "rounding_method_id": 1,
+        "rounding_interval_id": null,
+        "single_sign_on": false,
+        "force_two_factor_auth": false,
+        "force_single_sign_on": false,
+        "billing_email": "developersiladi@gmail.com",
+        "exchange_rate_provider_id": 2,
+        "overhead_recalculation_day": 5,
+        "overhead_amortization_period": 3,
+        "expense_markup": 0,
+        "deal_probability": 50,
+        "limited_service_types": false,
+        "decimal_places_id": 4,
+        "analytics_uid": "421db5cbbe792016",
+        "currency_format_id": 1,
+        "email_type_id": 1,
+        "remove_branding": false,
+        "email_domain_name": null,
+        "email_local_name": null,
+        "email_sender_name": null,
+        "domain_verified": false,
+        "allow_user_email": false,
+        "numbering_format_settings": {},
+        "revenue_recognition_type_id": 2,
+        "open_budget_recognition_date_id": 2,
+        "delivered_budget_recognition_date_id": 1,
+        "time_locking": false,
+        "time_locking_period_id": null,
+        "time_locking_interval": null,
+        "time_locking_reminders": false,
+        "facility_costs_breakdown": {},
+        "conflict_resolver_active": true,
+        "currency": "HRK",
+        "currency_default": "HRK",
+        "currency_normalized": "HRK",
+        "facility_costs": 0,
+        "facility_costs_default": 0,
+        "facility_costs_normalized": 0
+      },
+      "relationships": {
+        "owner": {
+          "data": {
+            "type": "people",
+            "id": "352657"
+          }
+        },
+        "company": {
+          "data": {
+            "type": "companies",
+            "id": "413196"
+          }
+        },
+        "organization_subscription": {
+          "data": {
+            "type": "organization_subscriptions",
+            "id": "23881"
+          }
+        }
+      }
+    },
+    {
+      "id": "352657",
+      "type": "people",
+      "attributes": {
+        "first_name": "Developer",
+        "last_name": "Siladi",
+        "email": "developersiladi@gmail.com",
+        "title": null,
+        "joined_at": "2022-11-25T18:31:21.000+01:00",
+        "last_seen_at": "2022-11-26T17:01:10.538+01:00",
+        "deactivated_at": null,
+        "archived_at": null,
+        "role_id": 1,
+        "invited_at": null,
+        "is_user": true,
+        "user_id": 89408,
+        "tag_list": [],
+        "avatar_url": null,
+        "virtual": false,
+        "custom_fields": null,
+        "autotracking": false,
+        "created_at": "2022-11-25T18:31:14.976+01:00",
+        "placeholder": false,
+        "color_id": null,
+        "contact": {},
+        "sample_data": false,
+        "time_unlocked": false,
+        "time_unlocked_on": null,
+        "time_unlocked_start_date": null,
+        "time_unlocked_end_date": null,
+        "time_unlocked_period_id": null,
+        "time_unlocked_interval": null,
+        "last_activity_at": "2022-11-25T22:40:56.992+01:00",
+        "two_factor_auth": false
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "company": {
+          "data": {
+            "type": "companies",
+            "id": "413196"
+          }
+        },
+        "subsidiary": {
+          "data": {
+            "type": "subsidiaries",
+            "id": "24750"
+          }
+        },
+        "holiday_calendar": {
+          "data": {
+            "type": "holiday_calendars",
+            "id": "23889"
+          }
+        },
+        "custom_role": {
+          "data": null
+        },
+        "custom_field_people": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "89408",
+      "type": "users",
+      "attributes": {
+        "email": "developersiladi@gmail.com",
+        "first_name": "Developer",
+        "last_name": "Siladi",
+        "time_zone": "Zagreb",
+        "avatar_url": null,
+        "default_organization_id": 23881,
+        "default_organization_slug": "23881-productive",
+        "intercom_hash": "e7c01b29281564d17ebf71eb9e41fa4e6fe3b72aa1f1884a78ff4f7b513b1fd0",
+        "beta_features": [],
+        "newsletter_consent": false,
+        "newsletter_consent_at": null,
+        "ical_token": null,
+        "preferences": "{\"last_seen_product_update_post_date\":\"2022-11-08T12:35:58\",\"active_time_entry_suggestions\":[\"1\",\"2\",\"3\"]}",
+        "sysadmin": false,
+        "sysadmin_permissions": [],
+        "two_factor_auth": false,
+        "sso_provision": false,
+        "account_access_expires_at": null
+      }
+    },
+    {
+      "id": "352657",
+      "type": "organization_membership_counts",
+      "attributes": {
+        "unseen_notifications_count": 0,
+        "time_entries_for_approval_count": 0,
+        "expenses_for_approval_count": 0,
+        "time_off_for_approval_count": 0,
+        "pending_time_off_approvals_count": 0
+      },
+      "relationships": {
+        "organization_membership": {
+          "data": {
+            "type": "organization_memberships",
+            "id": "352657"
+          }
+        }
+      }
+    },
+    {
+      "id": "413196",
+      "type": "companies",
+      "attributes": {
+        "name": "Productive",
+        "billing_name": null,
+        "vat": null,
+        "default_currency": "HRK",
+        "created_at": "2022-11-25T18:31:14.960+01:00",
+        "archived_at": null,
+        "avatar_url": null,
+        "invoice_email_recipients": {},
+        "custom_fields": null,
+        "company_code": "PROD",
+        "description": null,
+        "due_days": null,
+        "tag_list": [],
+        "contact": {},
+        "sample_data": false,
+        "settings": {}
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "custom_field_people": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "23881",
+      "type": "organization_subscriptions",
+      "attributes": {
+        "billing_email": "developersiladi@gmail.com",
+        "billing_address": null,
+        "subscription_state_id": 1,
+        "trial_ends_at": "2022-12-09 23:59:59",
+        "subscription_ends_at": null,
+        "next_billing_cycle_at": null,
+        "grace_period_ends_at": null,
+        "plan_price": 39,
+        "discount": null,
+        "discount_expires_on": null,
+        "plan_cycle": "month",
+        "current_plan": {
+          "id": "ultimate",
+          "name": "Ultimate",
+          "type": "regular",
+          "cycle_change_enabled": true,
+          "is_billable": true,
+          "monthly_price_cents": 3900,
+          "yearly_price_cents": 38400,
+          "currency": "USD",
+          "upgrades": [],
+          "downgrades": ["essential", "professional"],
+          "tiers": [],
+          "annual_tiers": [],
+          "quarterly_tiers": [],
+          "biannual_tiers": [],
+          "features": {
+            "custom_fields": {
+              "type": "metered",
+              "limit": 15
+            },
+            "custom_fields_per_project": {
+              "type": "metered",
+              "limit": 10
+            },
+            "public_custom_reports": {
+              "type": "metered",
+              "limit": 100
+            },
+            "private_custom_reports": {
+              "type": "metered",
+              "limit": 100
+            },
+            "public_project_reports": {
+              "type": "metered",
+              "limit": 100
+            },
+            "private_project_reports": {
+              "type": "metered",
+              "limit": 100
+            },
+            "scheduling_placeholders": {
+              "type": "metered",
+              "limit": 10
+            },
+            "workflows": {
+              "type": "metered",
+              "limit": 10
+            },
+            "rate_cards": {
+              "type": "metered",
+              "limit": 30
+            },
+            "teams": {
+              "type": "metered",
+              "limit": 20
+            },
+            "recycle_bin": {
+              "type": "restricted",
+              "available": true,
+              "limit": 730
+            },
+            "multigrouping": {
+              "type": "switch",
+              "available": true
+            },
+            "client_access_to_budgets": {
+              "type": "switch",
+              "available": true
+            },
+            "subsidiaries": {
+              "type": "switch",
+              "available": true
+            },
+            "time_approvals": {
+              "type": "switch",
+              "available": true
+            },
+            "expenses_approvals": {
+              "type": "switch",
+              "available": true
+            },
+            "timeoff_approvals": {
+              "type": "switch",
+              "available": true
+            },
+            "autotracking": {
+              "type": "switch",
+              "available": true
+            },
+            "forecasting": {
+              "type": "switch",
+              "available": true
+            },
+            "webhooks": {
+              "type": "switch",
+              "available": true
+            },
+            "table_pivoting": {
+              "type": "switch",
+              "available": true
+            },
+            "formula_fields": {
+              "type": "switch",
+              "available": true
+            },
+            "single_sign_on": {
+              "type": "switch",
+              "available": true
+            },
+            "duplicate_tasks": {
+              "type": "switch",
+              "available": true
+            },
+            "billable_time_rounding": {
+              "type": "switch",
+              "available": true
+            },
+            "payment_sync": {
+              "type": "switch",
+              "available": true
+            },
+            "booking_methods": {
+              "type": "switch",
+              "available": true
+            },
+            "import_tasks_csv": {
+              "type": "switch",
+              "available": true
+            },
+            "reactions": {
+              "type": "switch",
+              "available": true
+            },
+            "time_week_view": {
+              "type": "switch",
+              "available": true
+            },
+            "subtasks": {
+              "type": "switch",
+              "available": true
+            },
+            "time_calendar_layout": {
+              "type": "switch",
+              "available": true
+            },
+            "theming": {
+              "type": "switch",
+              "available": true
+            },
+            "remove_branding": {
+              "type": "switch",
+              "available": true
+            },
+            "custom_invoicing_email": {
+              "type": "switch",
+              "available": true
+            },
+            "google_calendar_layout": {
+              "type": "switch",
+              "available": true
+            },
+            "pulse": {
+              "type": "switch",
+              "available": true
+            },
+            "slack": {
+              "type": "switch",
+              "available": true
+            },
+            "task_custom_fields_library": {
+              "type": "switch",
+              "available": true
+            },
+            "timeline_layout": {
+              "type": "switch",
+              "available": true
+            },
+            "comment_visibility": {
+              "type": "switch",
+              "available": true
+            },
+            "time_off_sync": {
+              "type": "switch",
+              "available": true
+            },
+            "time_locking": {
+              "type": "switch",
+              "available": true
+            },
+            "docs": {
+              "type": "switch",
+              "available": true
+            },
+            "scheduling_resource_utilization": {
+              "type": "switch",
+              "available": true
+            },
+            "enforce_two_factor_auth": {
+              "type": "switch",
+              "available": true
+            },
+            "personio_integration": {
+              "type": "switch",
+              "available": true
+            },
+            "task_dependencies": {
+              "type": "switch",
+              "available": true
+            },
+            "hris_integration": {
+              "type": "switch",
+              "available": true
+            },
+            "numbering_scheme": {
+              "type": "switch",
+              "available": true
+            },
+            "automations": {
+              "type": "restricted",
+              "available": true,
+              "limit": 25000
+            },
+            "dashboards_sharing": {
+              "type": "switch",
+              "available": true
+            },
+            "currency_picker": {
+              "type": "switch",
+              "available": true
+            },
+            "required_custom_fields": {
+              "type": "switch",
+              "available": true
+            },
+            "restricted_tracking": {
+              "type": "switch",
+              "available": true
+            },
+            "enforce_sso": {
+              "type": "switch",
+              "available": true
+            },
+            "jira_integration": {
+              "type": "switch",
+              "available": true
+            },
+            "docs_versions": {
+              "type": "switch",
+              "available": true
+            },
+            "zapier_integration": {
+              "type": "switch",
+              "available": true
+            },
+            "recurring_budgets": {
+              "type": "switch",
+              "available": true
+            },
+            "restricted_user_roles": {
+              "type": "switch",
+              "available": true
+            },
+            "service_tracking_toggle": {
+              "type": "switch",
+              "available": true
+            },
+            "repeating_tasks": {
+              "type": "switch",
+              "available": true
+            },
+            "save_public_and_private_view": {
+              "type": "switch",
+              "available": true
+            },
+            "overhead_cost": {
+              "type": "switch",
+              "available": true
+            },
+            "show_only_filtered_data": {
+              "type": "switch",
+              "available": true
+            },
+            "invoicing_integrations": {
+              "type": "switch",
+              "available": true
+            },
+            "audit_log": {
+              "type": "switch",
+              "available": true
+            },
+            "hubspot_integration": {
+              "type": "switch",
+              "available": true
+            },
+            "booking_activity_modal": {
+              "type": "switch",
+              "available": true
+            }
+          },
+          "upgradeables": [],
+          "downgradeables": [
+            {
+              "id": "essential",
+              "name": "Essential",
+              "type": "regular",
+              "cycle_change_enabled": true,
+              "is_billable": true,
+              "monthly_price_cents": 2000,
+              "yearly_price_cents": 20400,
+              "currency": "USD",
+              "upgrades": ["professional", "ultimate"],
+              "downgrades": [],
+              "tiers": [],
+              "annual_tiers": [],
+              "quarterly_tiers": [],
+              "biannual_tiers": [],
+              "features": {
+                "custom_fields": {
+                  "type": "metered",
+                  "limit": 0
+                },
+                "custom_fields_per_project": {
+                  "type": "metered",
+                  "limit": 0
+                },
+                "public_custom_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "private_custom_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "public_project_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "private_project_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "scheduling_placeholders": {
+                  "type": "metered",
+                  "limit": 0
+                },
+                "workflows": {
+                  "type": "metered",
+                  "limit": 2
+                },
+                "rate_cards": {
+                  "type": "metered",
+                  "limit": 0
+                },
+                "teams": {
+                  "type": "metered",
+                  "limit": 0
+                },
+                "recycle_bin": {
+                  "type": "restricted",
+                  "available": true,
+                  "limit": 7
+                },
+                "multigrouping": {
+                  "type": "switch",
+                  "available": false
+                },
+                "client_access_to_budgets": {
+                  "type": "switch",
+                  "available": false
+                },
+                "subsidiaries": {
+                  "type": "switch",
+                  "available": false
+                },
+                "time_approvals": {
+                  "type": "switch",
+                  "available": false
+                },
+                "expenses_approvals": {
+                  "type": "switch",
+                  "available": false
+                },
+                "timeoff_approvals": {
+                  "type": "switch",
+                  "available": false
+                },
+                "autotracking": {
+                  "type": "switch",
+                  "available": false
+                },
+                "forecasting": {
+                  "type": "switch",
+                  "available": false
+                },
+                "webhooks": {
+                  "type": "switch",
+                  "available": false
+                },
+                "table_pivoting": {
+                  "type": "switch",
+                  "available": false
+                },
+                "formula_fields": {
+                  "type": "switch",
+                  "available": false
+                },
+                "single_sign_on": {
+                  "type": "switch",
+                  "available": true
+                },
+                "duplicate_tasks": {
+                  "type": "switch",
+                  "available": true
+                },
+                "billable_time_rounding": {
+                  "type": "switch",
+                  "available": false
+                },
+                "payment_sync": {
+                  "type": "switch",
+                  "available": false
+                },
+                "booking_methods": {
+                  "type": "switch",
+                  "available": true
+                },
+                "import_tasks_csv": {
+                  "type": "switch",
+                  "available": false
+                },
+                "reactions": {
+                  "type": "switch",
+                  "available": true
+                },
+                "time_week_view": {
+                  "type": "switch",
+                  "available": true
+                },
+                "subtasks": {
+                  "type": "switch",
+                  "available": true
+                },
+                "time_calendar_layout": {
+                  "type": "switch",
+                  "available": true
+                },
+                "theming": {
+                  "type": "switch",
+                  "available": true
+                },
+                "remove_branding": {
+                  "type": "switch",
+                  "available": false
+                },
+                "custom_invoicing_email": {
+                  "type": "switch",
+                  "available": false
+                },
+                "google_calendar_layout": {
+                  "type": "switch",
+                  "available": true
+                },
+                "pulse": {
+                  "type": "switch",
+                  "available": false
+                },
+                "slack": {
+                  "type": "switch",
+                  "available": true
+                },
+                "task_custom_fields_library": {
+                  "type": "switch",
+                  "available": false
+                },
+                "timeline_layout": {
+                  "type": "switch",
+                  "available": true
+                },
+                "comment_visibility": {
+                  "type": "switch",
+                  "available": false
+                },
+                "time_off_sync": {
+                  "type": "switch",
+                  "available": false
+                },
+                "time_locking": {
+                  "type": "switch",
+                  "available": false
+                },
+                "docs": {
+                  "type": "switch",
+                  "available": true
+                },
+                "scheduling_resource_utilization": {
+                  "type": "switch",
+                  "available": false
+                },
+                "enforce_two_factor_auth": {
+                  "type": "switch",
+                  "available": false
+                },
+                "personio_integration": {
+                  "type": "switch",
+                  "available": true
+                },
+                "task_dependencies": {
+                  "type": "switch",
+                  "available": false
+                },
+                "hris_integration": {
+                  "type": "switch",
+                  "available": true
+                },
+                "numbering_scheme": {
+                  "type": "switch",
+                  "available": false
+                },
+                "automations": {
+                  "type": "restricted",
+                  "available": false
+                },
+                "dashboards_sharing": {
+                  "type": "switch",
+                  "available": false
+                },
+                "currency_picker": {
+                  "type": "switch",
+                  "available": false
+                },
+                "required_custom_fields": {
+                  "type": "switch",
+                  "available": false
+                },
+                "restricted_tracking": {
+                  "type": "switch",
+                  "available": false
+                },
+                "enforce_sso": {
+                  "type": "switch",
+                  "available": false
+                },
+                "jira_integration": {
+                  "type": "switch",
+                  "available": false
+                },
+                "docs_versions": {
+                  "type": "switch",
+                  "available": false
+                },
+                "zapier_integration": {
+                  "type": "switch",
+                  "available": false
+                },
+                "recurring_budgets": {
+                  "type": "switch",
+                  "available": false
+                },
+                "restricted_user_roles": {
+                  "type": "switch",
+                  "available": false
+                },
+                "service_tracking_toggle": {
+                  "type": "switch",
+                  "available": false
+                },
+                "repeating_tasks": {
+                  "type": "switch",
+                  "available": false
+                },
+                "save_public_and_private_view": {
+                  "type": "switch",
+                  "available": false
+                },
+                "overhead_cost": {
+                  "type": "switch",
+                  "available": false
+                },
+                "show_only_filtered_data": {
+                  "type": "switch",
+                  "available": false
+                },
+                "invoicing_integrations": {
+                  "type": "switch",
+                  "available": false
+                },
+                "audit_log": {
+                  "type": "switch",
+                  "available": false
+                },
+                "hubspot_integration": {
+                  "type": "switch",
+                  "available": false
+                },
+                "booking_activity_modal": {
+                  "type": "switch",
+                  "available": false
+                }
+              }
+            },
+            {
+              "id": "professional",
+              "name": "Professional",
+              "type": "regular",
+              "cycle_change_enabled": true,
+              "is_billable": true,
+              "monthly_price_cents": 2800,
+              "yearly_price_cents": 28800,
+              "currency": "USD",
+              "upgrades": ["ultimate"],
+              "downgrades": ["essential"],
+              "tiers": [],
+              "annual_tiers": [],
+              "quarterly_tiers": [],
+              "biannual_tiers": [],
+              "features": {
+                "custom_fields": {
+                  "type": "metered",
+                  "limit": 5
+                },
+                "custom_fields_per_project": {
+                  "type": "metered",
+                  "limit": 3
+                },
+                "public_custom_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "private_custom_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "public_project_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "private_project_reports": {
+                  "type": "metered",
+                  "limit": 100
+                },
+                "scheduling_placeholders": {
+                  "type": "metered",
+                  "limit": 5
+                },
+                "workflows": {
+                  "type": "metered",
+                  "limit": 5
+                },
+                "rate_cards": {
+                  "type": "metered",
+                  "limit": 10
+                },
+                "teams": {
+                  "type": "metered",
+                  "limit": 5
+                },
+                "recycle_bin": {
+                  "type": "restricted",
+                  "available": true,
+                  "limit": 180
+                },
+                "multigrouping": {
+                  "type": "switch",
+                  "available": true
+                },
+                "client_access_to_budgets": {
+                  "type": "switch",
+                  "available": true
+                },
+                "subsidiaries": {
+                  "type": "switch",
+                  "available": false
+                },
+                "time_approvals": {
+                  "type": "switch",
+                  "available": true
+                },
+                "expenses_approvals": {
+                  "type": "switch",
+                  "available": false
+                },
+                "timeoff_approvals": {
+                  "type": "switch",
+                  "available": true
+                },
+                "autotracking": {
+                  "type": "switch",
+                  "available": false
+                },
+                "forecasting": {
+                  "type": "switch",
+                  "available": false
+                },
+                "webhooks": {
+                  "type": "switch",
+                  "available": false
+                },
+                "table_pivoting": {
+                  "type": "switch",
+                  "available": true
+                },
+                "formula_fields": {
+                  "type": "switch",
+                  "available": true
+                },
+                "single_sign_on": {
+                  "type": "switch",
+                  "available": true
+                },
+                "duplicate_tasks": {
+                  "type": "switch",
+                  "available": true
+                },
+                "billable_time_rounding": {
+                  "type": "switch",
+                  "available": true
+                },
+                "payment_sync": {
+                  "type": "switch",
+                  "available": true
+                },
+                "booking_methods": {
+                  "type": "switch",
+                  "available": true
+                },
+                "import_tasks_csv": {
+                  "type": "switch",
+                  "available": true
+                },
+                "reactions": {
+                  "type": "switch",
+                  "available": true
+                },
+                "time_week_view": {
+                  "type": "switch",
+                  "available": true
+                },
+                "subtasks": {
+                  "type": "switch",
+                  "available": true
+                },
+                "time_calendar_layout": {
+                  "type": "switch",
+                  "available": true
+                },
+                "theming": {
+                  "type": "switch",
+                  "available": true
+                },
+                "remove_branding": {
+                  "type": "switch",
+                  "available": false
+                },
+                "custom_invoicing_email": {
+                  "type": "switch",
+                  "available": false
+                },
+                "google_calendar_layout": {
+                  "type": "switch",
+                  "available": true
+                },
+                "pulse": {
+                  "type": "switch",
+                  "available": false
+                },
+                "slack": {
+                  "type": "switch",
+                  "available": true
+                },
+                "task_custom_fields_library": {
+                  "type": "switch",
+                  "available": true
+                },
+                "timeline_layout": {
+                  "type": "switch",
+                  "available": true
+                },
+                "comment_visibility": {
+                  "type": "switch",
+                  "available": true
+                },
+                "time_off_sync": {
+                  "type": "switch",
+                  "available": true
+                },
+                "time_locking": {
+                  "type": "switch",
+                  "available": false
+                },
+                "docs": {
+                  "type": "switch",
+                  "available": true
+                },
+                "scheduling_resource_utilization": {
+                  "type": "switch",
+                  "available": true
+                },
+                "enforce_two_factor_auth": {
+                  "type": "switch",
+                  "available": false
+                },
+                "personio_integration": {
+                  "type": "switch",
+                  "available": true
+                },
+                "task_dependencies": {
+                  "type": "switch",
+                  "available": true
+                },
+                "hris_integration": {
+                  "type": "switch",
+                  "available": true
+                },
+                "numbering_scheme": {
+                  "type": "switch",
+                  "available": false
+                },
+                "automations": {
+                  "type": "restricted",
+                  "available": true,
+                  "limit": 10000
+                },
+                "dashboards_sharing": {
+                  "type": "switch",
+                  "available": true
+                },
+                "currency_picker": {
+                  "type": "switch",
+                  "available": true
+                },
+                "required_custom_fields": {
+                  "type": "switch",
+                  "available": false
+                },
+                "restricted_tracking": {
+                  "type": "switch",
+                  "available": false
+                },
+                "enforce_sso": {
+                  "type": "switch",
+                  "available": false
+                },
+                "jira_integration": {
+                  "type": "switch",
+                  "available": true
+                },
+                "docs_versions": {
+                  "type": "switch",
+                  "available": false
+                },
+                "zapier_integration": {
+                  "type": "switch",
+                  "available": true
+                },
+                "recurring_budgets": {
+                  "type": "switch",
+                  "available": true
+                },
+                "restricted_user_roles": {
+                  "type": "switch",
+                  "available": true
+                },
+                "service_tracking_toggle": {
+                  "type": "switch",
+                  "available": true
+                },
+                "repeating_tasks": {
+                  "type": "switch",
+                  "available": true
+                },
+                "save_public_and_private_view": {
+                  "type": "switch",
+                  "available": true
+                },
+                "overhead_cost": {
+                  "type": "switch",
+                  "available": false
+                },
+                "show_only_filtered_data": {
+                  "type": "switch",
+                  "available": true
+                },
+                "invoicing_integrations": {
+                  "type": "switch",
+                  "available": true
+                },
+                "audit_log": {
+                  "type": "switch",
+                  "available": false
+                },
+                "hubspot_integration": {
+                  "type": "switch",
+                  "available": false
+                },
+                "booking_activity_modal": {
+                  "type": "switch",
+                  "available": true
+                }
+              }
+            }
+          ]
+        },
+        "plan_type": "ultimate",
+        "payment_method_id": 1,
+        "seats": 1,
+        "seats_used": 1,
+        "seats_pending": 1,
+        "trial_plan_ends_at": null,
+        "trial_plan_type": null,
+        "card_brand": null,
+        "card_last4": null,
+        "card_month": null,
+        "card_year": null,
+        "stripe_customer_id": "cus_MrpOUAW4kHdSK6",
+        "balance": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        }
+      }
+    },
+    {
+      "id": "24750",
+      "type": "subsidiaries",
+      "attributes": {
+        "name": "Subsidiary",
+        "invoice_number_format": null,
+        "invoice_number_scope": null,
+        "archived_at": null,
+        "overhead_per_subsidiary": null,
+        "overhead_amortization_period": null,
+        "overhead_recalculation_day": null,
+        "show_delivery_date": false,
+        "export_integration_type_id": null,
+        "invoice_logo_url": null,
+        "facility_costs": 0,
+        "facility_costs_default": 0,
+        "facility_costs_normalized": 0
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "bill_from": {
+          "data": {
+            "type": "contact_entries",
+            "id": "1041539"
+          }
+        },
+        "integration": {
+          "data": null
+        }
+      }
+    },
+    {
+      "id": "23889",
+      "type": "holiday_calendars",
+      "attributes": {
+        "name": "Holiday calendar",
+        "country": "Croatia",
+        "state": null,
+        "autogenerate_holidays": true
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        }
+      }
+    },
+    {
+      "id": "1041539",
+      "type": "contact_entries",
+      "attributes": {
+        "contactable_type": "subsidiary",
+        "type": "bill_from",
+        "name": "Productive",
+        "email": null,
+        "phone": null,
+        "website": null,
+        "address": null,
+        "city": null,
+        "state": null,
+        "zipcode": null,
+        "country": "Croatia",
+        "vat": null,
+        "billing_address": null
+      },
+      "relationships": {
+        "organization": {
+          "data": {
+            "type": "organizations",
+            "id": "23881"
+          }
+        },
+        "company": {
+          "data": null
+        },
+        "person": {
+          "data": null
+        },
+        "invoice": {
+          "data": null
+        },
+        "subsidiary": {
+          "data": {
+            "type": "subsidiaries",
+            "id": "24750"
+          }
+        }
+      }
+    }
+  ],
+  "links": {
+    "first": "https://api.productive.io/api/v2/organization_memberships?page%5Bnumber%5D=1&page%5Bsize%5D=30",
+    "last": "https://api.productive.io/api/v2/organization_memberships?page%5Bnumber%5D=1&page%5Bsize%5D=30"
+  },
+  "meta": {
+    "current_page": 1,
+    "total_pages": 1,
+    "total_count": 1,
+    "page_size": 30,
+    "max_page_size": 200,
+    "settings": {
+      "systemFlags": {
+        "setting_type": "systemFlags",
+        "value": "[\"addTimeEntryViaTimeTab\",\"adminBillingAccess\",\"allBoardsFiltering\",\"allocations\",\"approvalWorkflow\",\"autotrackingRevamp\",\"boardNavigation\",\"bookingConflictResolverPopup\",\"bookingCustomFields\",\"bookingImport\",\"bookingReportApprovalStatusField\",\"budgetInvoicesTab\",\"budgetServicesRevamp\",\"budgetTimeExpensesTracking\",\"budgetTooltips\",\"budget_overrun\",\"bufferedPopupFilterField\",\"calendarEventSync\",\"checkRealtimeEventOrganization\",\"companyDocumentType\",\"companyTimeNavigation\",\"copyProjectBudgets\",\"costRateInsight\",\"creditNote\",\"cumulativeColumnValues\",\"currencyPicker\",\"dayViewTaskField\",\"dealWarningForTodosDisable\",\"deliveryDateOnInvoiceOption\",\"disableProjectReports\",\"documentTemplateSubsidiary\",\"documentTypeEmailFieldsRevamp\",\"draftComments\",\"draftInvoiceStatus\",\"economicIntegration\",\"economicSubjectLine\",\"editableTimeEntryReportsVs\",\"emailPerRecipientStatus\",\"emptyFilterBehavior\",\"endDateFieldOnTimeEntryReports\",\"entitlementInsights\",\"entitlementsImport\",\"entitlementsModal\",\"exactDivisions\",\"exactServiceMapping\",\"expenseImport\",\"expenseModalPerson\",\"expensesCustomFields\",\"exportCreditNoteQb\",\"exportCreditNoteXero\",\"exportCurrencySymbol\",\"feedFiltering\",\"filterablePlaceholders\",\"financialsScheduledCost\",\"fixPredefinedViewsPersistenceFuckup\",\"force2fa\",\"forecastingForToday\",\"formattingOptions\",\"formattingOptionsWeekdaySetting\",\"formulableCountCol\",\"fortnoxIntegration\",\"freeForNowIntegrationBadge\",\"generalNumberingSystem\",\"generateHolidaysAutomatically\",\"globalSearchRevamp\",\"globalTaskCustomFields\",\"granularNotifications\",\"halfDayTimeOff\",\"harvestImport\",\"hideEstimatesForClient\",\"holidayCalendar\",\"improved_alfred\",\"insightsKacunko\",\"invoiceCreatedAtField\",\"invoiceDocumentTypeHeader\",\"invoiceExporterSettings\",\"invoiceNumberScope\",\"invoicesCreatorField\",\"invoicesSentOnBulkEdit\",\"juniorCoordinator\",\"jwtToken\",\"kanbanBulkSelection\",\"kanbanLayout\",\"limitProjectInsights\",\"listLayout\",\"marketplace\",\"marketplaceBanner\",\"minimizedItemsTray\",\"newBookingActions\",\"newProjectSidebar\",\"newTaskPopoverForm\",\"office365Calendar\",\"overheadTables\",\"peopleLastActivityAt\",\"perPeriodBudgetValues\",\"personioIntegration\",\"personioSync\",\"placeholderWorkingHours\",\"privateComments\",\"progressToFinancialsReport\",\"pulse\",\"quickBooksExportUpdate\",\"quickSearch\",\"quickbooksCodeMapping\",\"rateCards\",\"rateImport\",\"recycleBin\",\"recycleBinDestroyers\",\"remainingTimeRename\",\"removeMyExpenses\",\"repeatingTasks\",\"requiredCustomFields\",\"salesClosedOn\",\"salesStatusBulkEdit\",\"sampleDataWarning\",\"savePopup\",\"schedulingDateFilters\",\"schedulingShowOnlyFilteredData\",\"schedulingSupplementalData\",\"searchDesign\",\"serviceMarkup\",\"servicePerson\",\"serviceTypeAssignments\",\"serviceTypeMerge\",\"servicesColumnEdit\",\"servicesInsightUnit\",\"settingsTaskCfsLibrary\",\"showOnlyTotalsByDefault\",\"sidebar\",\"simplifiedDateFormats\",\"slackIntegration\",\"slackPulse\",\"slackSettings\",\"sortPopup\",\"subsidiaryOnInvoiceAndBudget\",\"subtasks\",\"subtasksSort\",\"syncedInvoiceDueDate\",\"tableViewRevamp\",\"taskDependencies\",\"taskEstimates\",\"taskModalRework\",\"taxPerLineItem\",\"timeApprovalsInlineEdit\",\"timeEntriesLock\",\"timeEntriesReportsStartedAt\",\"timeEstimateIncludingSubtasks\",\"timeOffStatusSync\",\"timeReportsTotalWorkCost\",\"timelineLayout\",\"timersEndpoint\",\"uniqueCompanyCode\",\"updateInvoice\",\"updateInvoiceAttributionDatePeriod\",\"userManagement\",\"viewsRevamp\",\"virtualUser\",\"vsRealtimeReloadOnUpdate\",\"workflows\",\"workflowsListLayoutGrouper\",\"xeroServiceTypeMappings\"]",
+        "updated_at": "2022-11-21T10:01:29.208+01:00"
+      }
+    }
+  }
+}

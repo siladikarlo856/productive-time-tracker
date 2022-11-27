@@ -21,6 +21,31 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
       });
   }
 
+  function getOrganizationMembershipsForSpecificOrganization(
+    organizationId: string
+  ) {
+    if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
+
+    return axios
+      ?.get("/organization_memberships", {
+        params: {
+          "filter[organization_id]": organizationId,
+        },
+      })
+      .then((response: { data: any }) => {
+        console.log(
+          "GET /organization_memberships for org",
+          organizationId,
+          response.data
+        );
+        return response;
+      })
+      .catch((err) => {
+        console.error("API call error", err);
+        return Promise.reject(err);
+      });
+  }
+
   function getAllTimeEntries() {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
 
@@ -39,7 +64,7 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
   function getFilteredTimeEntries(
     after: string,
     before: string,
-    personId: number
+    personId: string
   ) {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
 
@@ -76,7 +101,7 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
       });
   }
 
-  function getServiceById(id: number) {
+  function getServiceById(id: string) {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
 
     return axios
@@ -94,7 +119,8 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
   function getAvailableServicesForProject(
     after: string,
     before: string,
-    personId: number
+    personId: string,
+    projectId: string
   ) {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
 
@@ -104,7 +130,7 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
           "filter[after]": after,
           "filter[before]": before,
           "filter[person_id]": personId,
-          "filter[project_id]": 261719,
+          "filter[project_id]": projectId,
           "filter[time_tracking_enabled]": true,
         },
       })
@@ -121,38 +147,11 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
       });
   }
 
-  const postTimeEntryBody = {
-    data: {
-      type: "time_entries",
-      attributes: {
-        note: "test note vue",
-        date: "2022-11-25",
-      },
-      relationships: {
-        person: {
-          data: {
-            type: "people",
-            id: "352657",
-          },
-        },
-        service: {
-          data: {
-            type: "services",
-            id: "2343326",
-          },
-        },
-        task: {
-          data: null,
-        },
-      },
-    },
-  };
-
-  function postTimeEntry() {
+  function postTimeEntry(timeEntryBody: any) {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
 
     return axios
-      ?.post("/time_entries", postTimeEntryBody)
+      ?.post("/time_entries", timeEntryBody)
       .then((response: { data: any }) => {
         console.log("POST /time_entries response:", response.data);
         return response;
@@ -163,7 +162,7 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
       });
   }
 
-  function deleteTimeEntryById(id: number) {
+  function deleteTimeEntryById(id: string) {
     if (!axios) return Promise.reject("Error. Internal error."); // error if axios is not provided
     return axios
       ?.delete(`/time_entries/${id}`)
@@ -179,6 +178,7 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
 
   return {
     getOrganizationMemberships,
+    getOrganizationMembershipsForSpecificOrganization,
     getAllTimeEntries,
     getFilteredTimeEntries,
     getAllServices,

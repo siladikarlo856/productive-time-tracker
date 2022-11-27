@@ -1,6 +1,9 @@
 <template>
   <div class="min-h-screen flex flex-col h-screen">
-    <header class="bg-red-50">Header</header>
+    <header class="bg-red-50">
+      Hello {{ timeTrackerStore.currentUser.attributes?.first_name }}
+      {{ timeTrackerStore.currentUser.attributes?.last_name }}
+    </header>
     <!-- main container -->
     <div class="flex-1 flex flex-row overflow-y-hidden">
       <main class="flex-1 bg-indigo-100 overflow-y-auto">
@@ -35,28 +38,64 @@
 </template>
 
 <script lang="ts">
-import { Axios } from "axios";
 import { defineComponent, inject } from "vue";
+import { OrganizationMemberships } from "./interfaces/OrganizationMemberships";
+import { OrganizationMembershipModel } from "./models/OrganizationMembershipModel";
+import { OrganizationMembershipsModel } from "./models/OrganizationMembershipsModel";
+import { PersonModel } from "./models/PersonModel";
 import { useProductiveApiStore } from "./stores/apiStore";
 import { useNotifyUserStore } from "./stores/notifiyUserStore";
+import { useTimeTrackerStore } from "./stores/timeTrackerStore";
 
 export default defineComponent({
   setup() {
     // Stores
     const apiStore = useProductiveApiStore();
     const notifyUserStore = useNotifyUserStore();
+    const timeTrackerStore = useTimeTrackerStore();
 
-    console.log("Test api store");
-    apiStore.getOrganizationMemberships();
-
-    apiStore.getFilteredTimeEntries("2022-11-25", "2022-11-25", 352657);
-    apiStore.getAvailableServicesForProject("2022-11-25", "2022-11-25", 352657);
+    apiStore
+      .getOrganizationMemberships()
+      .then((res) => {
+        timeTrackerStore.organizationMemberships =
+          new OrganizationMembershipsModel(res.data as OrganizationMemberships);
+      })
+      .then(() => {
+        const orgMembership = timeTrackerStore.findOrgMembershipForOrganization(
+          timeTrackerStore.ORGANIZATION_ID
+        );
+        if (orgMembership) {
+          timeTrackerStore.orgMembershipForCurrentOrganization = orgMembership;
+        }
+        const personId = orgMembership?.relationships?.person?.data?.id;
+        const personObject =
+          timeTrackerStore.getPersonFromOrganizationMemberships(personId);
+        if (personObject) {
+          timeTrackerStore.currentUser = personObject;
+        }
+      })
+      .then(() => {
+        apiStore.getFilteredTimeEntries(
+          "2022-11-25",
+          "2022-11-25",
+          timeTrackerStore.orgMembershipForCurrentOrganization.id
+        );
+        apiStore.getAvailableServicesForProject(
+          "2022-11-25",
+          "2022-11-25",
+          timeTrackerStore.orgMembershipForCurrentOrganization.id,
+          timeTrackerStore.PROJECT_ID
+        );
+      })
+      .catch((res) => {
+        console.log("getOrganizationMemberships catch", res);
+      });
 
     function deleteTimeEntry() {
       console.log("Delete button handler");
       const timeEntryId = window.prompt();
       apiStore
-        .deleteTimeEntryById(Number.parseInt(timeEntryId || ""))
+        .deleteTimeEntryById(timeEntryId || "")
         .then(() => {
           notifyUserStore.notifyUserWithSuccessMessage(
             "Time entry successfully deleted"
@@ -71,8 +110,34 @@ export default defineComponent({
 
     function createTimeEntry() {
       console.log("Create button handler");
+      const postTimeEntryBody = {
+        data: {
+          type: "time_entries",
+          attributes: {
+            note: "test note vue",
+            date: "2022-11-25",
+          },
+          relationships: {
+            person: {
+              data: {
+                type: "people",
+                id: "352657",
+              },
+            },
+            service: {
+              data: {
+                type: "services",
+                id: "2343326",
+              },
+            },
+            task: {
+              data: null,
+            },
+          },
+        },
+      };
       apiStore
-        .postTimeEntry()
+        .postTimeEntry(postTimeEntryBody)
         .then(() => {
           notifyUserStore.notifyUserWithSuccessMessage("Time entry created");
         })
@@ -83,7 +148,7 @@ export default defineComponent({
         });
     }
 
-    return { deleteTimeEntry, createTimeEntry };
+    return { timeTrackerStore, deleteTimeEntry, createTimeEntry };
   },
 });
 </script>
