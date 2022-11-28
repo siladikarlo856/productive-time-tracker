@@ -1,3 +1,3 @@
 export interface ProductiveAttributes {
-  [key: string]: string | number | boolean;
+  [key: string]: string | number | boolean | null;
 }
