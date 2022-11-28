@@ -77,6 +77,7 @@ Create Productive time tracker app with CR(U)D for today's time entries. Data wi
 ### Time tracking screen on mobile
 
 ![](./screenshots/time-page-mobile.png)
+![](./screenshots/time-page-mobile-2.png)
 
 ### Built With
 
