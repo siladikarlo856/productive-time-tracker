@@ -14,9 +14,10 @@
     <TimeEntryCard
       v-for="timeEntry in timeTrackerStore.timeEntries"
       :key="timeEntry.id"
-      :project-title="timeTrackerStore.PROJECT_NAME"
+      :project-title="timeEntry.projectName"
+      :budget-title="timeEntry.budgetName"
       :service-title="timeEntry.serviceName"
-      :note-text="timeEntry.noteText"
+      :note-text="timeEntry.note"
       :duration-in-minutes="timeEntry.timeInMinutes"
       :is-delete-in-progress="isDeleteInProgress"
       @delete="onTimeEntryDelete(timeEntry.id)"

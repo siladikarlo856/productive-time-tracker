@@ -8,7 +8,6 @@ export class ServicePresentableModel implements ServicePresentable {
   budgetName: string;
 
   constructor(data: ServiceDTO, included: Array<ProductiveDTO>) {
-    // TODO: make an interface for API response
     this.id = data?.id || "";
     this.name = data?.attributes?.name || "";
     this.budgetName = this.getBudgetName(data, included);
