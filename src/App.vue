@@ -46,7 +46,6 @@ export default defineComponent({
         if (personObject) {
           timeTrackerStore.currentUser = personObject;
         }
-        console.log("Current user: ", personObject);
       })
       .then(() => {
         timeTrackerStore.fetchTimeEntryPresentables();

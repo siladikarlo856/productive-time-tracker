@@ -15,7 +15,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     return axios
       ?.get("/organization_memberships")
       .then((response: { data: any }) => {
-        console.log("GET /organization_memberships", response.data);
         return response;
       })
       .catch((err) => {
@@ -36,11 +35,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
         },
       })
       .then((response: { data: any }) => {
-        console.log(
-          "GET /organization_memberships for org",
-          organizationId,
-          response.data
-        );
         return response;
       })
       .catch((err) => {
@@ -55,7 +49,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     return axios
       ?.get("/time_entries")
       .then((response: { data: any }) => {
-        console.log("GET /time_entries", response.data);
         return response;
       })
       .catch((err) => {
@@ -80,7 +73,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
         },
       })
       .then((response: { data: any }) => {
-        console.log("GET filtered /time_entries", response.data);
         return response;
       })
       .catch((err) => {
@@ -95,7 +87,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     return axios
       ?.get("/services")
       .then((response: { data: any }) => {
-        console.log("GET /services", response.data);
         return response;
       })
       .catch((err) => {
@@ -110,7 +101,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     return axios
       ?.get(`/services/${id}`)
       .then((response: { data: any }) => {
-        console.log("GET /services", response.data);
         return response;
       })
       .catch((err) => {
@@ -138,10 +128,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
         },
       })
       .then((response: { data: any }) => {
-        console.log(
-          "GET getAvailableServicesForProject /services",
-          response.data
-        );
         getAvailableServicesForProjectResponse.value = deepCopy(response.data);
         return getAvailableServicesForProjectResponse.value;
       })
@@ -157,7 +143,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     return axios
       ?.post("/time_entries", timeEntryBody)
       .then((response: { data: any }) => {
-        console.log("POST /time_entries response:", response.data);
         return response;
       })
       .catch((err) => {
@@ -171,7 +156,6 @@ export const useProductiveApiStore = defineStore("productive-api-store", () => {
     return axios
       ?.delete(`/time_entries/${id}`)
       .then((response: any) => {
-        console.log("DELETE /time_entries", response);
         return response;
       })
       .catch((err) => {
