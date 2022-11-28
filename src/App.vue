@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex flex-row h-screen overflow-y-hidden">
     <nav>
-      <MainNavigation />
+      <MainNavigation class="hidden md:flex" />
     </nav>
     <main class="flex-1 bg-gray-100 overflow-y-auto">
       <router-view></router-view>

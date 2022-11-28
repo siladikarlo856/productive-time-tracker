@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mb-1 ml-20 mr-20 flex flex-col justify-between py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0"
+    class="mb-1 mx-4 md:ml-20 md:mr-20 flex flex-col justify-between py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 items-center sm:space-y-0"
   >
     <div class="flex flex-grow w-full pb-4">
       <div class="flex flex-grow">

@@ -1,13 +1,13 @@
 <template>
   <div
-    class="mt-3 mb-6 ml-20 mr-20 flex py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:space-y-0 items-center"
+    class="mt-3 mb-6 mx-5 md:ml-20 md:mr-20 flex py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:space-y-0 items-center"
   >
     <i
-      class="fa-sharp fa-solid fa-circle-info my-auto mr-4 text-xl text-blue-800"
+      class="fa-sharp fa-solid fa-circle-info mr-4 text-xl text-blue-800 my-auto"
     ></i>
-    <span class="my-auto">
+    <div class="flex">
       Here are yours time entries for today, {{ new Date().toDateString() }}
-    </span>
+    </div>
   </div>
   <TimeEntryEditor class="mb-6" />
   <div class="cards-container flex flex-col justify-items-center">
