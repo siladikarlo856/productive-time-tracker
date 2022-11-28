@@ -48,6 +48,9 @@ export default defineComponent({
         }
         console.log("Current user: ", personObject);
       })
+      .then(() => {
+        timeTrackerStore.fetchTimeEntryPresentables();
+      })
       .catch((err) => {
         console.error(err);
         notifyUserStore.notifyUserWithErrorMessage(

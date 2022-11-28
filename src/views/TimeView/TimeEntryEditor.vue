@@ -115,7 +115,7 @@
           />
         </div>
       </div>
-      <div class="flex flex-wrap justify-end md:w-1/5 flex-grow">
+      <div class="flex flex-wrap justify-end md:w-1/5 flex-grow max-w-xs">
         <div class="mt-1 md:ml-4 w-full flex-grow">
           <div class="block">
             <br />

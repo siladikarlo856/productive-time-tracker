@@ -49,8 +49,6 @@ export default defineComponent({
     // Lifecycle hooks
     onMounted(() => {
       timeTrackerStore.fetchTimeEntryPresentables();
-      // subscribe on timeTracker store changes
-      timeTrackerStore.$subscribe(storeSubscriptionHandler);
     });
 
     // Fetch time entries if the currentUser object is mutated
