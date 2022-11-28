@@ -5,7 +5,9 @@
     <div class="text-center space-y-2 sm:text-left w-1/4">
       <div class="space-y-0.5">
         <p class="text-lg text-black font-semibold">{{ projectTitle }}</p>
-        <p class="text-slate-500 font-medium">{{ serviceTitle }}</p>
+        <p class="text-gray-400 font-medium">
+          {{ budgetTitle }}: {{ serviceTitle }}
+        </p>
       </div>
     </div>
     <div class="flex flex-grow">
@@ -48,6 +50,7 @@ export default defineComponent({
   components: { LoadingButton },
   props: {
     projectTitle: { type: String },
+    budgetTitle: { type: String },
     serviceTitle: { type: String },
     noteText: { type: String },
     durationInMinutes: { type: Number },

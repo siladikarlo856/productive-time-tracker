@@ -5,6 +5,7 @@ import { OrganizationMembershipModel } from "@/models/OrganizationMembershipMode
 import { OrganizationMembershipsModel } from "@/models/OrganizationMembershipsModel";
 import { PersonModel } from "@/models/PersonModel";
 import { ServicePresentableModel } from "@/presentables/ServicePresentableModel";
+import { TimeEntryPresentableModel } from "@/presentables/TimeEntryPresentableModel";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useProductiveApiStore } from "./apiStore";
@@ -27,7 +28,7 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   );
   const currentUser = ref<PersonModel>(new PersonModel());
 
-  const timeEntries = ref<Array<any>>([]);
+  const timeEntries = ref<Array<TimeEntryPresentableModel>>([]);
   const availableServicesForProject = ref<Array<ServicePresentableModel>>([]);
 
   function fetchTimeEntryPresentables() {
@@ -38,26 +39,15 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
         currentUser.value.id
       )
       .then((filteredTimeEntriesResponse) => {
-        apiStore.getAllServices().then((allServicesResponse) => {
-          timeEntries.value = [];
-          filteredTimeEntriesResponse.data.data.forEach((timeEntryDTO: any) => {
-            const serviceName = allServicesResponse.data.data.find(
-              (serviceObject: any) =>
-                serviceObject.id === timeEntryDTO.relationships.service.data.id
-            )?.attributes?.name;
+        timeEntries.value = filteredTimeEntriesResponse.data.data.map(
+          (timeEntryDTO: any) =>
+            new TimeEntryPresentableModel(
+              timeEntryDTO,
+              filteredTimeEntriesResponse.data.included
+            )
+        );
 
-            const timeEntryPresentableObj = {
-              id: timeEntryDTO.id,
-              noteText: timeEntryDTO.attributes.note,
-              timeInMinutes: timeEntryDTO.attributes.time,
-              serviceName: serviceName,
-            };
-
-            timeEntries.value.push(timeEntryPresentableObj);
-          });
-          return allServicesResponse;
-        });
-        return filteredTimeEntriesResponse;
+        return timeEntries.value;
       });
   }
 
