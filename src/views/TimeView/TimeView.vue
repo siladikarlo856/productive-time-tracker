@@ -56,6 +56,7 @@ export default defineComponent({
     // Fetch time entries if the currentUser object is mutated
     function storeSubscriptionHandler(mutation: any, state: any) {
       if (mutation?.events?.newValue instanceof PersonModel) {
+        console.log("Mutation", mutation, state);
         timeTrackerStore.fetchTimeEntryPresentables();
       }
     }
