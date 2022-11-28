@@ -37,8 +37,8 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row flex-grow justify-between w-full">
-      <div class="flex flex-wrap flex-grow w-1/2">
+    <div class="flex flex-col md:flex-row flex-grow justify-between w-full">
+      <div class="flex flex-wrap flex-grow md:w-1/2">
         <div class="pr-1 mb-6 md:mb-0 w-full">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -81,8 +81,8 @@
           </div>
         </div>
       </div>
-      <div class="flex w-1/4 flex-grow">
-        <div class="px-2 mb-6 md:mb-0 w-full">
+      <div class="flex md:w-1/4 flex-grow">
+        <div class="md:px-2 mb-6 md:mb-0 w-full">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             for="time"
@@ -98,9 +98,9 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-grow w-full pt-4">
+    <div class="flex flex-grow flex-col md:flex-row w-full pt-4">
       <div class="flex flex-grow">
-        <div class="mb-6 md:mb-0 w-full">
+        <div class="md:mb-6 md:mb-0 w-full flex-grow">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             for="grid-last-name"
@@ -115,8 +115,8 @@
           />
         </div>
       </div>
-      <div class="flex flex-wrap justify-end w-1/5">
-        <div class="mt-1 ml-4 w-full">
+      <div class="flex flex-wrap justify-end md:w-1/5 flex-grow">
+        <div class="mt-1 md:ml-4 w-full flex-grow">
           <div class="block">
             <br />
           </div>
@@ -125,7 +125,7 @@
             @click="onAddNewClick"
             :isLoading="isLoading"
           >
-            Add new
+            Save
           </LoadingButton>
         </div>
       </div>

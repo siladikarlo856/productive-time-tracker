@@ -1,9 +1,9 @@
 <template>
   <div
-    class="mb-1 ml-20 mr-20 flex flex-col md:flex-row justify-between py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"
+    class="mb-1 ml-20 mr-20 flex flex-col lg:flex-row justify-between py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"
   >
-    <div class="text-center space-y-2 sm:text-left w-1/4">
-      <div class="space-y-0.5">
+    <div class="text-center space-y-2 sm:text-left lg:w-1/4">
+      <div class="space-y-0.5 text-center lg:text-left">
         <p class="text-lg text-black font-semibold">{{ projectTitle }}</p>
         <p class="text-gray-400 font-medium">
           {{ budgetTitle }}: {{ serviceTitle }}
