@@ -19,7 +19,7 @@
       :service-title="timeEntry.serviceName"
       :note-text="timeEntry.note"
       :duration-in-minutes="timeEntry.timeInMinutes"
-      :is-delete-in-progress="isDeleteInProgress"
+      :is-delete-in-progress="viewModel.isDeleteInProgress"
       @delete="onTimeEntryDelete(timeEntry.id)"
       @edit="onTimeEntryEdit(timeEntry.id)"
     />
@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, reactive, ref } from "vue";
 
 import TimeEntryCard from "@/views/TimeView/TimeEntryCard.vue";
 import TimeEntryEditor from "./TimeEntryEditor.vue";
@@ -35,6 +35,7 @@ import { useProductiveApiStore } from "@/stores/apiStore";
 import { useNotifyUserStore } from "@/stores/notifiyUserStore";
 import { useTimeTrackerStore } from "@/stores/timeTrackerStore";
 import { PersonModel } from "@/models/PersonModel";
+import { TimeViewViewModel } from "./TimeViewViewModel";
 
 export default defineComponent({
   name: "TimeView",
@@ -44,10 +45,13 @@ export default defineComponent({
     const notifyUserStore = useNotifyUserStore();
     const timeTrackerStore = useTimeTrackerStore();
 
-    const isDeleteInProgress = ref(false);
+    const viewModel = reactive<TimeViewViewModel>(
+      new TimeViewViewModel(apiStore, notifyUserStore, timeTrackerStore)
+    );
 
     // Lifecycle hooks
     onMounted(() => {
+      // viewModel.fetchTimeEntryPresentables();
       timeTrackerStore.fetchTimeEntryPresentables();
     });
 
@@ -59,7 +63,7 @@ export default defineComponent({
     }
 
     function onTimeEntryDelete(timeEntryId: string) {
-      isDeleteInProgress.value = true;
+      viewModel.isDeleteInProgress = true;
       apiStore
         .deleteTimeEntryById(timeEntryId)
         .then(() => {
@@ -73,7 +77,7 @@ export default defineComponent({
           );
         })
         .finally(() => {
-          isDeleteInProgress.value = false;
+          viewModel.isDeleteInProgress = false;
           timeTrackerStore.fetchTimeEntryPresentables();
         });
     }
@@ -85,8 +89,8 @@ export default defineComponent({
     }
 
     return {
+      viewModel,
       timeTrackerStore,
-      isDeleteInProgress,
       onTimeEntryDelete,
       onTimeEntryEdit,
     };
