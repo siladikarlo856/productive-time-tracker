@@ -32,7 +32,10 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
   const availableServicesForProject = ref<Array<ServicePresentableModel>>([]);
 
   function fetchTimeEntryPresentables() {
-    apiStore
+    if (!currentUser.value.id) {
+      return Promise.reject("User data is not present.");
+    }
+    return apiStore
       .getFilteredTimeEntries(
         getTodaysDateFormatted(),
         getTodaysDateFormatted(),

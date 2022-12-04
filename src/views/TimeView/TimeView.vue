@@ -51,41 +51,23 @@ export default defineComponent({
 
     // Lifecycle hooks
     onMounted(() => {
-      // viewModel.fetchTimeEntryPresentables();
-      timeTrackerStore.fetchTimeEntryPresentables();
+      viewModel.fetchTimeEntryPresentables();
+      // timeTrackerStore.$subscribe(storeSubscriptionHandler);
     });
 
     // Fetch time entries if the currentUser object is mutated
     function storeSubscriptionHandler(mutation: any, state: any) {
       if (mutation?.events?.newValue instanceof PersonModel) {
-        timeTrackerStore.fetchTimeEntryPresentables();
+        viewModel.fetchTimeEntryPresentables();
       }
     }
 
     function onTimeEntryDelete(timeEntryId: string) {
-      viewModel.isDeleteInProgress = true;
-      apiStore
-        .deleteTimeEntryById(timeEntryId)
-        .then(() => {
-          notifyUserStore.notifyUserWithSuccessMessage(
-            "Time entry successfully deleted"
-          );
-        })
-        .catch(() => {
-          notifyUserStore.notifyUserWithErrorMessage(
-            "Time entry can not be deleted"
-          );
-        })
-        .finally(() => {
-          viewModel.isDeleteInProgress = false;
-          timeTrackerStore.fetchTimeEntryPresentables();
-        });
+      viewModel.onTimeEntryDelete(timeEntryId);
     }
 
     function onTimeEntryEdit(timeEntryId: string) {
-      notifyUserStore.notifyUserWithWarningMessage(
-        "Edit feature is not implemented"
-      );
+      viewModel.onTimeEntryEdit(timeEntryId);
     }
 
     return {
