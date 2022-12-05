@@ -33,7 +33,10 @@ export const useTimeTrackerStore = defineStore("time-tracker-store", () => {
 
   function fetchTimeEntryPresentables() {
     if (!currentUser.value.id) {
-      return Promise.reject("User data is not present.");
+      return Promise.reject({
+        status: "001",
+        message: "User data is not present.",
+      });
     }
     return apiStore
       .getFilteredTimeEntries(

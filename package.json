@@ -10,6 +10,7 @@
     "lint": "eslint . --ext  .js,.ts,.vue,.json",
     "lint-and-fix": "eslint . --ext .js,.ts,.vue,.json --fix",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'",
+    "test-file": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register",
     "prepare": "husky install"
   },
   "license": "MIT",
