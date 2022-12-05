@@ -1,12 +1,18 @@
 import { deepCopy } from "../helpers/helpers";
 import { ProductiveResponseData } from "@/interfaces/ProductiveResponseData";
-import { Axios } from "axios";
+import axios from "axios";
 import { defineStore } from "pinia";
-import { ref, inject } from "vue";
+import { ref } from "vue";
 
 export const useProductiveApiStore = defineStore("productive-api-store", () => {
-  // Dependency injection
-  const axios = inject<Axios>("axios"); // inject axios
+  // HARDCODED Global axios config
+  // ATTENTION: Axios global config HARDCODED!!!
+  axios.defaults.baseURL = "https://api.productive.io/api/v2";
+  axios.defaults.headers.common["X-Auth-Token"] =
+    "3fcefcff-3384-44f4-b520-08507ea4b163";
+  axios.defaults.headers.common["X-Organization-Id"] = "23881";
+  axios.defaults.headers.post["Content-Type"] = "application/vnd.api+json";
+
   const getAvailableServicesForProjectResponse = ref<ProductiveResponseData>();
 
   function getOrganizationMemberships() {
